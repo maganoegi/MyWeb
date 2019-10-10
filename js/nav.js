@@ -18,9 +18,9 @@ function elementVisibility(element, expression) {
 
 function moveHi(direction) {
     if(direction == "up") {
-        $(".hi").css("margin-top", "50px");
+        $(".hi").css("margin-top", "3%");
     } else {
-        $(".hi").css("margin-top", "200px");
+        $(".hi").css("margin-top", "20%");
     }
 }
 
