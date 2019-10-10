@@ -174,3 +174,14 @@ ul li {
 .s8 {
     top: 86.5%;
 }
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Android */
+    -webkit-tap-highlight-color: transparent;
+}
