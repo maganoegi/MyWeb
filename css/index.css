@@ -1,0 +1,156 @@
+
+/* * {
+    transition: all 1s;
+} */
+
+html {
+    height: 100%;
+}
+
+
+body {
+    /* perspective: 1000px; */
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    border: 0;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Mukta', sans-serif;
+    overflow: auto;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-columns: auto minmax(20%, 80%) auto;
+    grid-template-areas: 
+    ". h ."
+    "s c ."
+    ". f .";
+}
+
+.header {
+    grid-area: h;
+    position: relative;
+    width: 100%;
+    /* background-color: aquamarine; */
+    text-align: center;
+}
+
+.backbtn {
+    display: block;
+    position: absolute !important;
+    margin-top: -5px !important;
+    margin-left: 15px !important;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.5s;
+    visibility: hidden;
+    padding: 5px !important;
+}
+
+
+.content {
+    grid-area: c;
+    /* background-color: blanchedalmond; */
+    justify-items: center;
+}
+
+#myNav {
+    /* margin: auto; */
+    /* width: auto; */
+    /* position: absolute; */
+    padding: 0;
+    /* display: block;     */
+    justify-content: center;
+    /* background-color: cadetblue; */
+    width: auto;
+    transform: translateY(200%);
+    display: flex;
+} 
+
+ul li {
+    list-style: none;
+}
+
+.footer {
+    grid-area: f;
+    /* background-color: aquamarine; */
+}
+
+.myFoot {
+    justify-content: center;
+    padding: 0;
+    width: auto;
+    transform: translateY(50%);
+    display: flex;
+}
+
+/* .line {
+    display: block;
+    width: 8px;
+    height: 60%;
+    border-radius: 3px;
+    background-color: black;
+    transition: 0.5s;
+    position: absolute;
+    z-index: 20;
+    opacity: 0;
+    margin-left: 10%;
+} */
+
+.line {
+    position: absolute;
+    height: 60%;
+    width: 30%;
+}
+
+.segment {
+    position: absolute;
+    width: 8px;
+    height: 13.5%;
+    background-color: black;
+    z-index: 20;
+    opacity: 1;
+
+}
+
+.s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8 {
+    /* margin-left: 20%; */
+    opacity: 0;
+}
+
+.s1 {
+    top: 0;
+}
+
+.s2 {
+    top: 11.5%;
+}
+
+.s3 {
+    top: 24%;
+}
+
+.s4 {
+    top: 36.5%
+}
+
+.s5 {
+    top: 49%;
+}
+
+.s6 {
+    top: 61.5%;
+}
+
+.s7 {
+    top: 74%;
+}
+
+.s8 {
+    top: 86.5%;
+}

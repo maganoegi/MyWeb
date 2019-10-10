@@ -1,0 +1,160 @@
+
+// @keyframes noise-anim {
+//     $steps: 20;
+//     @for $i from 0 through $steps {
+//         #{percentage($i*(1/$steps))} {
+//             $top: random(100);
+//             $bottom: random(101 - $top);
+//             clip-path: inset(#{$top}% 0 #{$bottom}%  0);
+//         }
+//     }
+// }
+
+// @keyframes noise-anim-2 {
+//     $steps: 20;
+//     @for $i from 0 through $steps {
+//       #{percentage($i*(1/$steps))} {
+//         $top: random(100);
+//         $bottom: random(101 - $top);
+//         clip-path: inset(#{$top}% 0 #{$bottom}%  0);
+//       }
+//     }
+//   }
+
+// .hi::after {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: -1px 0 red;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim 0.5s infinite linear alternate-reverse;
+// }
+
+// .hi::before {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: 1px 0 blue;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim-2 15s infinite linear alternate-reverse;
+//   }
+
+//   .work::after {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: -1px 0 red;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim 0.5s infinite linear alternate-reverse;
+// }
+
+// .work::before {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: 1px 0 blue;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim-2 15s infinite linear alternate-reverse;
+//   }
+
+//   .contact::after {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: -1px 0 red;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim 0.5s infinite linear alternate-reverse;
+// }
+
+// .contact::before {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: 1px 0 blue;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim-2 15s infinite linear alternate-reverse;
+// }
+
+//   .about::after {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: -1px 0 red;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim 0.5s infinite linear alternate-reverse;
+// }
+
+// .about::before {
+//     content: attr(data-text);
+//     position: absolute;
+//     left: 0px;
+//     text-shadow: 1px 0 blue;
+//     top: 0;
+//     color: white;
+//     background: black;
+//     overflow: hidden;
+//     animation: noise-anim-2 15s infinite linear alternate-reverse;
+//   }
+
+
+//Russian Glitch:
+
+.hi {
+  padding: 12.5px;
+    &:before, &:after {
+      content: "sergey platonov";
+      position: absolute;
+      color: #000;
+      top: 13px;
+      overflow: hidden;
+    }
+    &:before {
+      left: 15px;
+      text-shadow: 1px 0 red;
+      animation: glitch-before 2s linear 0s infinite alternate;
+    }
+    &:after {
+      left: 15px;
+      text-shadow: -1px 0 black;
+      animation: glitch-after 2s linear 0s infinite alternate-reverse;
+    }
+}
+
+@keyframes glitch-before {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(200)+px, 700px, random(200)+px, 30px);
+    }
+  }
+}
+
+@keyframes glitch-after {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(200)+px, 700px, random(200)+px, 30px);
+    }
+  }
+}
