@@ -83,6 +83,7 @@ ul li {
 .smaller {
     margin: 0 !important;
     justify-self: center;
+    transform: translateY(30%);
 }
 
 .en {
@@ -306,11 +307,12 @@ ul li {
     .hi {
         font-size: 40px !important;
         line-height: 30px !important;
+        transform: translateY(0%);
     }
 
     #myNav {
         display: block;
-        transform: translateY(55%) !important;
+        transform: translateY(45%) !important;
     }
 
     #myNav ul li {

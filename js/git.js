@@ -1,3 +1,9 @@
+
+
+
+// Source: http://yonaba.github.io/2012/08/14/List-your-GitHub-projects-using-JavaScript-and-jQuery.md.html
+
+
 jQuery.githubUser = function(username, callback) {
     jQuery.getJSON('https://api.github.com/users/'+username+'/repos?callback=?',callback)
 }
@@ -9,14 +15,14 @@ jQuery.fn.loadRepositories = function(username) {
     $.githubUser(username, function(data) {
         var repos = data.data;
 
-        console.log(data);
+        // console.log(data);
     
         var list = "<div class=\"gitGrid\">";
         $(repos).each(function() {
             let lang = this.language;
             let link = this.homepage?this.homepage:this.html_url;
             let imgSrc;
-            if(lang in ["CSS", "Javascript", "HTML", "html"]) {
+            if(lang == "CSS" || lang == "Javascript" || lang == "HTML" || lang == "html") {
                 imgSrc = "./resources/img/webpack.png";
             } else {
                 imgSrc = "./resources/img/" + lang + ".png"; 
