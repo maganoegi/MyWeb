@@ -68,9 +68,11 @@ function updateContentFromFile(source, target) {
                 $(target).text(data.content);
                 break;
             case ".workContent":
-                alert("hi;");
                 break;
-
+            case ".contactContent":
+                break;
+            default: 
+                break;
         }
     }});
 }

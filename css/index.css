@@ -1,7 +1,8 @@
 
 /* * {
-    transition: all 1s;
+    transition: all 0.2s;
 } */
+
 
 html {
     height: 100%;
@@ -106,7 +107,7 @@ ul li {
 
 .line {
     position: absolute;
-    height: 60%;
+    height: 70%;
     width: 30%;
 }
 
@@ -224,10 +225,81 @@ ul li {
     visibility: hidden;
     width: 100%;
     height: 100%;
-    background-color: aqua;
+    /* background-color: aqua; */
     position: absolute;
+    overflow: auto;
+}
+
+.gitGrid {
+    position: relative;
     display: grid;
     overflow: auto;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 40px;
+}
+
+.gitwrapper {
+    height: 200px;
+    position: relative;
+    left: 20%;
+    display: block;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.gitImg {
+
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: calc(50% - 100px);
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.gitDesc {
+    text-align: center;
+    display: block;
+    position: absolute; 
+    height: 70px;
+    width: 100%;
+    bottom: calc(50% - 35px);
+    z-index: 2;
+    font-size: 21px;
+    font-weight: 900;
+    transform: 0.5s;
+
+}
+
+.gitwrapper:hover {
+    border: 2px solid black;
+}
+
+.gitGrid::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.gitGrid::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+
+.gitGrid::-webkit-scrollbar-thumb {
+	background-color: #3366FF;
+	border-radius: 10px;
+	background-image: -webkit-linear-gradient(0deg,
+	                                          rgba(255, 255, 255, 0.5) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, 0.5) 50%,
+											  rgba(255, 255, 255, 0.5) 75%,
+											  transparent 75%,
+											  transparent)
 }
 
 @media (max-width: 600px) {
