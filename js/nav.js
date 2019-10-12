@@ -60,9 +60,18 @@ function moveLine(direction) {
     }
 }
 
-function GetContentFromFile(file) {
-    $.ajax({url: file, dataType: "String", success: function(result){
-        return result;
+function updateContentFromFile(source, target) {
+    $.ajax({url: source, dataType: "json", success: function(data){
+        $(".sectionTitle").text(data.title);
+        switch(target) {
+            case ".aboutContent":
+                $(target).text(data.content);
+                break;
+            case ".workContent":
+                alert("hi;");
+                break;
+
+        }
     }});
 }
 
@@ -77,23 +86,12 @@ $(document).ready(function(){
     //     typeSpeed: 1000,
     //   });
       
-    
-
-    // TODO:   x -> Make all nav-buttons invisible when pressed.                      
-    //         x -> Make Back-button a snakebutton, fadein/out.            
-    //         x -> BackBtn same position.   
-    //         o -> <h1>title</h1> under BackBtn, as  well as the rest of the content.
-    //         o -> Make scroll: overflow on only content grid-area. 
-    //         o -> Define Media query (check for min size of convenience.) 
-    //         x -> Separate the .line into .line {segments}, then animate.
-    //         o -> Glitch @ name .
-    //         x -> Think about name representation (design-wise). 
 
     // ---------------------------------------------------------
     // ----------------------- Language Handler ----------------
     // ---------------------------------------------------------
     var lang = "en";
-
+    // TODO: implement content update upon language change.
     $(".en").click(function () { 
         lang = "en";
     });
@@ -112,20 +110,19 @@ $(document).ready(function(){
 
 
 
-
+    // ---------------------------------------------------------
+    // ------------------- Navigation Handler ------------------
+    // ---------------------------------------------------------
     $(".contact").click(function() { 
-
-        let content = GetContentFromFile("../resources/" + lang + "/contact.txt");
-        console.log(content);
-        console.log("./resources/" + lang + "/contact.txt");
-        moveLine("left");
-        moveHi("up");
         elementVisibility(".backbtn", true);
         elementVisibility(".work", false);
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
+        moveLine("left");
+        moveHi("up");
+        
         elementVisibility(".contentGrid", true);
-        $(".sectionContent").text(content);
+        elementVisibility(".sectionContent", true);
     });
 
     $(".work").click(function() { 
@@ -133,11 +130,13 @@ $(document).ready(function(){
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
         elementVisibility(".work", false);
-        elementVisibility(".contentGrid", true);
-        // elementVisibility(".line", true);
         moveLine("left");
-        moveHi("up"); 
+        moveHi("up");
 
+        updateContentFromFile("../resources/" + lang + "/work.json", ".workContent");
+        elementVisibility(".contentGrid", true);
+        elementVisibility(".sectionContent", true);
+        elementVisibility(".workContent", true); 
     });
 
     $(".about").click(function() { 
@@ -145,10 +144,13 @@ $(document).ready(function(){
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
         elementVisibility(".work", false);
-        elementVisibility(".contentGrid", true);
-        // elementVisibility(".line", true);
         moveLine("left");
         moveHi("up"); 
+
+        updateContentFromFile("../resources/" + lang + "/about.json", ".aboutContent");
+        elementVisibility(".contentGrid", true);
+        elementVisibility(".sectionContent", true);
+        elementVisibility(".aboutContent", true);
     });
 
     $(".backbtn").click(function() { 
@@ -156,10 +158,14 @@ $(document).ready(function(){
         elementVisibility(".about", true);
         elementVisibility(".contact", true);
         elementVisibility(".work", true);
-        elementVisibility(".contentGrid", false);
-        // elementVisibility(".line", false);
         moveLine("right");
         moveHi("down"); 
+
+        elementVisibility(".contentGrid", false);
+        elementVisibility(".sectionContent", false);
+        elementVisibility(".workContent", false);
+        elementVisibility(".aboutContent", false);
+
     });
 
 });

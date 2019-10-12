@@ -1,5 +1,9 @@
 styles = """
 
+* {
+  transition: 0.5s;
+}
+
 pre { 
   z-index: -1;
   position: absolute; width: 100%;
