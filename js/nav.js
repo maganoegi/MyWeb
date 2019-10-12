@@ -1,4 +1,10 @@
 
+
+
+
+// ---------------------------------------------------------
+// ----------------------- Functions -----------------------
+// ---------------------------------------------------------
 function elementVisibility(element, expression) {
     if(expression) {
         $(element).css("opacity", "1");
@@ -9,18 +15,11 @@ function elementVisibility(element, expression) {
     }
 }
 
-// function wait(ms) {
-//     var d = new Date();
-//     var d2 = null;
-//     do { d2 = new Date(); }
-//     while(d2-d < ms);
-// }
-
 function moveHi(direction) {
     if(direction == "up") {
-        $(".hi").css("margin-top", "3%");
+        $(".hi").css("transform", "translateY(50%)");
     } else {
-        $(".hi").css("margin-top", "20%");
+        $(".hi").css("transform", "translateY(200%)");
     }
 }
 
@@ -61,12 +60,23 @@ function moveLine(direction) {
     }
 }
 
-$(document).ready(function(){
+function GetContentFromFile(file) {
+    $.ajax({url: file, dataType: "String", success: function(result){
+        return result;
+    }});
+}
 
-    
-    // var typed = new Typed(".typed", {
-    //     stringsElement: "#typed-strings"
-    // })
+
+// ---------------------------------------------------------
+// ----------------------- Main ----------------------------
+// ---------------------------------------------------------
+
+$(document).ready(function(){
+    // var typed = new Typed    out', {
+    //     strings: ["about"],
+    //     typeSpeed: 1000,
+    //   });
+      
     
 
     // TODO:   x -> Make all nav-buttons invisible when pressed.                      
@@ -79,14 +89,43 @@ $(document).ready(function(){
     //         o -> Glitch @ name .
     //         x -> Think about name representation (design-wise). 
 
+    // ---------------------------------------------------------
+    // ----------------------- Language Handler ----------------
+    // ---------------------------------------------------------
+    var lang = "en";
+
+    $(".en").click(function () { 
+        lang = "en";
+    });
+    $(".fr").click(function () { 
+        lang = "fr";
+    });
+    $(".sp").click(function () { 
+        lang = "es";
+    });
+    $(".ru").click(function () { 
+        lang = "ru";
+    });
+    $(".nl").click(function () { 
+        lang = "nl";
+    });
+
+
+
+
     $(".contact").click(function() { 
+
+        let content = GetContentFromFile("../resources/" + lang + "/contact.txt");
+        console.log(content);
+        console.log("./resources/" + lang + "/contact.txt");
         moveLine("left");
         moveHi("up");
         elementVisibility(".backbtn", true);
         elementVisibility(".work", false);
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
-        // elementVisibility(".line", true);
+        elementVisibility(".contentGrid", true);
+        $(".sectionContent").text(content);
     });
 
     $(".work").click(function() { 
@@ -94,6 +133,7 @@ $(document).ready(function(){
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
         elementVisibility(".work", false);
+        elementVisibility(".contentGrid", true);
         // elementVisibility(".line", true);
         moveLine("left");
         moveHi("up"); 
@@ -105,6 +145,7 @@ $(document).ready(function(){
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
         elementVisibility(".work", false);
+        elementVisibility(".contentGrid", true);
         // elementVisibility(".line", true);
         moveLine("left");
         moveHi("up"); 
@@ -115,6 +156,7 @@ $(document).ready(function(){
         elementVisibility(".about", true);
         elementVisibility(".contact", true);
         elementVisibility(".work", true);
+        elementVisibility(".contentGrid", false);
         // elementVisibility(".line", false);
         moveLine("right");
         moveHi("down"); 

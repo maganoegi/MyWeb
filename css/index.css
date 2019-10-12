@@ -40,19 +40,6 @@ body {
     text-align: center;
 }
 
-.backbtn {
-    display: block;
-    position: absolute !important;
-    margin-top: -5px !important;
-    margin-left: 15px !important;
-    opacity: 0;
-    cursor: pointer;
-    transition: 0.5s;
-    visibility: hidden;
-    padding: 5px !important;
-}
-
-
 .content {
     grid-area: c;
     /* background-color: blanchedalmond; */
@@ -60,15 +47,10 @@ body {
 }
 
 #myNav {
-    /* margin: auto; */
-    /* width: auto; */
-    /* position: absolute; */
     padding: 0;
-    /* display: block;     */
     justify-content: center;
-    /* background-color: cadetblue; */
     width: auto;
-    transform: translateY(200%);
+    transform: translateY(400%);
     display: flex;
 } 
 
@@ -184,4 +166,47 @@ ul li {
     user-select: none;
     /* Android */
     -webkit-tap-highlight-color: transparent;
+}
+
+.contentGrid {
+    position: absolute;
+    visibility: hidden;
+    display: grid;
+    width: 80vw;
+    height: 65vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 90px 10% 80%;
+}
+
+.backbtn {
+    grid-row: 1;
+    display: block;
+    position: absolute !important;
+    margin-top: -5px !important;
+    margin-left: 15px !important;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.5s;
+    visibility: hidden;
+    padding: 5px !important;
+}
+
+.sectionTitle {
+    background-color: tomato;
+    grid-row: 2;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.sectionContent {
+    overflow: auto;
+    grid-row: 3;
+    transition: 0.5s;
+    display: inline-block;
+    position: absolute;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    margin-left: 15px;
+
 }
