@@ -96,6 +96,7 @@ $(document).ready(function(){
     // TODO: implement content update upon language change.
     $(".en").click(function () { 
         lang = "en";
+        // $(this).css("background-image", "radial-gradient(closest-side, #fff, #000)");
     });
     $(".fr").click(function () { 
         lang = "fr";

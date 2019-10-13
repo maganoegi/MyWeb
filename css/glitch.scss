@@ -145,8 +145,8 @@
   $steps: 20;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
-      clip: rect(random(200)+px, 700px, random(200)+px, 30px);
-    }
+      clip: rect(random(300)+px, 700px, random(300)+px, 30px);
+    } 
   }
 }
 
