@@ -296,7 +296,7 @@ ul li {
     #myNav {
         display: flex;
         align-items: center;
-        transform: translateY(50%) !important;
+        transform: translateY(0%) !important;
         width: 100%;
         flex-direction: column;
 
@@ -334,13 +334,17 @@ ul li {
 
     }
 
+    .sectionTitle {
+        font-size: 20px;
+    }
+
     .snakebtn .backbtn {
         width: 300px;
     }
 
     .aboutContent {
         height: 80%;
-        margin: 20px 0;
+        margin: 10px 0;
         word-wrap: break-word;
         font-size: 15px;
         overflow: auto;
