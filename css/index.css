@@ -346,7 +346,7 @@ ul li {
     .aboutContent {
         height: 80%;
         margin: 10px 0;
-        word-wrap: break-word;
+        word-wrap: normal;
         font-size: 15px;
         overflow: auto;
     }
