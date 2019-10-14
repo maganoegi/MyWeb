@@ -80,6 +80,25 @@ function updateContentFromFile(source, target) {
     }});
 }
 
+function showActiveLanguage(target) {
+    var allLang = [".en", ".fr", ".sp", ".ru", ".nl"];
+    allLang.forEach(element => {
+        if(element == target) {
+            $(element).animate({"background-color":"black","color":"transparent !important"}, 100);
+        } else {
+            $(element).animate({"background-color":"transparent","color":"black"}, 500);
+        }
+    });
+}
+
+function updateNavLanguage(source) {
+    $.ajax({url: source, dataType: "json", success: function(data){
+        $(".about").text(data.about);
+        $(".work").text(data.work);
+        $(".contact").text(data.contact);
+    }});
+}
+
 
 // ---------------------------------------------------------
 // ----------------------- Main ----------------------------
@@ -96,22 +115,29 @@ $(document).ready(function(){
     // ----------------------- Language Handler ----------------
     // ---------------------------------------------------------
     var lang = "en";
+    showActiveLanguage(".en");
+    updateNavLanguage(".en");
+
     // TODO: implement content update upon language change.
     $(".en").click(function () { 
         lang = "en";
-        // $(this).css("background-image", "radial-gradient(closest-side, #fff, #000)");
+        showActiveLanguage(".en");
     });
     $(".fr").click(function () { 
         lang = "fr";
+        showActiveLanguage(".fr");
     });
     $(".sp").click(function () { 
         lang = "es";
+        showActiveLanguage(".sp");
     });
     $(".ru").click(function () { 
         lang = "ru";
+        showActiveLanguage(".ru");
     });
     $(".nl").click(function () { 
         lang = "nl";
+        showActiveLanguage(".nl");
     });
 
 

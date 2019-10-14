@@ -358,4 +358,8 @@ ul li {
         display: flex;
         padding-top: 6px !important;
     }
+
+    /* ul li .en {
+        font-size: 40px;
+    } */
 }

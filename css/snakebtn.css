@@ -126,7 +126,7 @@ ul li .snakebtn:hover span:nth-child(4) {
     text-decoration: none;
     margin: 0 40px;
     width: auto;
-    color: #262626;
+    color: black;
     cursor: pointer;
     transition: 0.5s;
 }
