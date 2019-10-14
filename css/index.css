@@ -286,44 +286,72 @@ ul li {
     color: antiquewhite;
 }
 
-.gitGrid::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-	border-radius: 10px;
-}
-
-.gitGrid::-webkit-scrollbar {
-	width: 10px;
-	background-color: #F5F5F5;
-}
-
-
-.gitGrid::-webkit-scrollbar-thumb {
-	background-color: #3366FF;
-	border-radius: 10px;
-	background-image: -webkit-linear-gradient(0deg,
-	                                          rgba(255, 255, 255, 0.5) 25%,
-											  transparent 25%,
-											  transparent 50%,
-											  rgba(255, 255, 255, 0.5) 50%,
-											  rgba(255, 255, 255, 0.5) 75%,
-											  transparent 75%,
-											  transparent)
-}
-
 @media (max-width: 600px) {
     .hi {
-        font-size: 40px !important;
-        line-height: 30px !important;
-        transform: translateY(0%);
+        font-size: 30px !important;
+        line-height: 25px !important;
+        transform: translateY(120%) !important;
     }
 
     #myNav {
-        display: block;
-        transform: translateY(45%) !important;
+        display: flex;
+        align-items: center;
+        transform: translateY(50%) !important;
+        width: 100%;
+        flex-direction: column;
+
     }
 
-    #myNav ul li {
-        padding: 100px;
+    #myNav li .snakebtn {
+        width: 80% !important;
+        padding: 10px !important;
+        margin: 0;
+    }
+
+    #myNav li {
+        display: flex;
+        width: 70%;
+        padding: 10px 0;
+    }
+
+    .about, .work, .contact {
+        flex: 1;
+    }
+
+    #container {
+        grid-template-rows: 20% 60% 20%;
+    }
+
+    .line {
+        height: 60%;
+    }
+
+    ul li .backbtn {
+        position: relative;
+        font-size: 20px !important;
+        width: 50px !important;
+        padding: 2px !important;
+
+    }
+
+    .snakebtn .backbtn {
+        width: 300px;
+    }
+
+    .aboutContent {
+        height: 80%;
+        margin: 20px 0;
+        word-wrap: break-word;
+        font-size: 15px;
+        overflow: auto;
+    }
+
+    .myFoot {
+        margin-top: 30px;
+    }
+
+    .smaller {
+        display: flex;
+        padding-top: 6px !important;
     }
 }

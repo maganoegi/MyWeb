@@ -16,11 +16,13 @@ function elementVisibility(element, expression) {
 }
 
 function moveHi(direction) {
-    if(direction == "up") {
-        $(".hi").css("transform", "translateY(50%)");
-    } else {
-        $(".hi").css("transform", "translateY(200%)");
-    }
+    if($(window).width() > 600) {
+        if(direction == "up") {
+            $(".hi").css("transform", "translateY(50%)");
+        } else {
+            $(".hi").css("transform", "translateY(200%)");
+        }
+    } 
 }
 
 function moveLine(direction) {

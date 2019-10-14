@@ -16,7 +16,7 @@ jQuery.fn.loadRepositories = function(username) {
         var repos = data.data;
 
         // console.log(data);
-    
+
         var list = "<div class=\"gitGrid\">";
         $(repos).each(function() {
             let lang = this.language;
