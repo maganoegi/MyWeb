@@ -216,6 +216,8 @@ ul li {
 
 .aboutContent {
     transition: 0.5s;
+    margin-top: 10px;
+    font-size: 22px;
     visibility: hidden;
     overflow: auto;
     display: inline-block;

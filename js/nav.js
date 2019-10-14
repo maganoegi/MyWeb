@@ -65,7 +65,8 @@ function updateContentFromFile(source, target) {
         $(".sectionTitle").text(data.title);
         switch(target) {
             case ".aboutContent":
-                $(target).text(data.content);
+                var obj = $(target).html(data.content);
+                obj.html(obj.html().replace(/\n/g,'<br/>'));
                 break;
             case ".workContent":
                 break;
