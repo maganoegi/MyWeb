@@ -62,12 +62,12 @@ function moveLine(direction) {
     }
 }
 
-function updateContentFromFile(source, target) {
-    $.ajax({url: source, dataType: "json", success: function(data){
-        $(".sectionTitle").text(data.title);
+function updateContentFromFile(lang, section, target) {
+    $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
+        $(".sectionTitle").text(data[lang][section]["title"]);
         switch(target) {
             case ".aboutContent":
-                var obj = $(target).html(data.content);
+                var obj = $(target).html(data[lang][section]["content"]);
                 obj.html(obj.html().replace(/\n/g,'<br/>'));
                 break;
             case ".workContent":
@@ -91,11 +91,12 @@ function showActiveLanguage(target) {
     });
 }
 
-function updateNavLanguage(source) {
-    $.ajax({url: source, dataType: "json", success: function(data){
-        $(".about").text(data.about);
-        $(".work").text(data.work);
-        $(".contact").text(data.contact);
+function updateNavLanguage(lang) {
+    var four_span = "<span></span><span></span><span></span><span></span>";
+    $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
+        $("div.about").html(data[lang]["about"]["nav"] + four_span);
+        $("div.work").html(data[lang]["work"]["nav"] + four_span);
+        $("div.contact").html(data[lang]["contact"]["nav"] + four_span);
     }});
 }
 
@@ -122,22 +123,29 @@ $(document).ready(function(){
     $(".en").click(function () { 
         lang = "en";
         showActiveLanguage(".en");
+        updateNavLanguage("en");
+
     });
     $(".fr").click(function () { 
         lang = "fr";
         showActiveLanguage(".fr");
+        updateNavLanguage("fr");
+
     });
     $(".sp").click(function () { 
         lang = "es";
         showActiveLanguage(".sp");
+        updateNavLanguage("sp");
     });
     $(".ru").click(function () { 
         lang = "ru";
         showActiveLanguage(".ru");
+        updateNavLanguage("ru");
     });
     $(".nl").click(function () { 
         lang = "nl";
         showActiveLanguage(".nl");
+        updateNavLanguage("nl");
     });
 
 
@@ -153,6 +161,7 @@ $(document).ready(function(){
         moveLine("left");
         moveHi("up");
         
+        updateContentFromFile(lang, "contact", ".contactContent");
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
     });
@@ -165,7 +174,7 @@ $(document).ready(function(){
         moveLine("left");
         moveHi("up");
 
-        updateContentFromFile("../resources/" + lang + "/work.json", ".workContent");
+        updateContentFromFile(lang, "work", ".workContent");
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
         elementVisibility(".workContent", true); 
@@ -179,7 +188,7 @@ $(document).ready(function(){
         moveLine("left");
         moveHi("up"); 
 
-        updateContentFromFile("../resources/" + lang + "/about.json", ".aboutContent");
+        updateContentFromFile(lang, "about", ".aboutContent");
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
         elementVisibility(".aboutContent", true);

@@ -4,13 +4,13 @@
 } */
 
 
-html {
+html, body {
     height: 100%;
+    margin: 0;
 }
 
 
 body {
-    /* perspective: 1000px; */
     height: 100%;
     margin: 0;
     width: 100%;
