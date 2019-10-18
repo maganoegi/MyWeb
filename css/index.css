@@ -276,7 +276,6 @@ ul li {
     font-size: 21px;
     font-weight: bold;
     transform: 0.5s;
-
 }
 
 .gitwrapper:hover {
@@ -362,4 +361,39 @@ ul li {
     /* ul li .en {
         font-size: 40px;
     } */
+
+
+.gitwrapper {
+    height: 100px;
+    position: relative;
+    left: 20%;
+    display: block;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.gitImg {
+
+    display: block;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: calc(50% - 50px);
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.gitDesc {
+    text-align: center;
+    display: block;
+    position: absolute; 
+    height: 175px;
+    width: 100%;
+    bottom: calc(50% - 35px);
+    z-index: 2;
+    font-size: 12px;
+    font-weight: bold;
+    transform: 0.5s;
+}
 }

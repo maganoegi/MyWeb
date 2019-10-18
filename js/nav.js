@@ -124,28 +124,43 @@ $(document).ready(function(){
         lang = "en";
         showActiveLanguage(".en");
         updateNavLanguage("en");
+        updateContentFromFile(lang, "about", ".aboutContent");
+        updateContentFromFile(lang, "work", ".workContent");
+        updateContentFromFile(lang, "contact", ".contactContent");
 
     });
     $(".fr").click(function () { 
         lang = "fr";
         showActiveLanguage(".fr");
         updateNavLanguage("fr");
+        updateContentFromFile(lang, "about", ".aboutContent");
+        updateContentFromFile(lang, "work", ".workContent");
+        updateContentFromFile(lang, "contact", ".contactContent");
 
     });
     $(".sp").click(function () { 
         lang = "es";
         showActiveLanguage(".sp");
         updateNavLanguage("sp");
+        updateContentFromFile(lang, "about", ".aboutContent");
+        updateContentFromFile(lang, "work", ".workContent");
+        updateContentFromFile(lang, "contact", ".contactContent");
     });
     $(".ru").click(function () { 
         lang = "ru";
         showActiveLanguage(".ru");
         updateNavLanguage("ru");
+        updateContentFromFile(lang, "about", ".aboutContent");
+        updateContentFromFile(lang, "work", ".workContent");
+        updateContentFromFile(lang, "contact", ".contactContent");
     });
     $(".nl").click(function () { 
         lang = "nl";
         showActiveLanguage(".nl");
         updateNavLanguage("nl");
+        updateContentFromFile(lang, "about", ".aboutContent");
+        updateContentFromFile(lang, "work", ".workContent");
+        updateContentFromFile(lang, "contact", ".contactContent");
     });
 
 
