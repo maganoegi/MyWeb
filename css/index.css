@@ -362,38 +362,35 @@ ul li {
         font-size: 40px;
     } */
 
+    .gitGrid {
+        grid-template-columns: repeat(auto-fill, 95%);
+        gap: 20px;
 
-.gitwrapper {
-    height: 100px;
-    position: relative;
-    left: 20%;
-    display: block;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: 0.5s;
-}
+    }
 
-.gitImg {
+    .gitwrapper {
+        display: grid;
+        grid-template-columns: 100px auto;
+        grid-template-rows: 100px;
+        left: 0;
+        /* align-items: center; */
+        width: 100%;
+        height: 100px;
+    }
 
-    display: block;
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    left: calc(50% - 50px);
-    z-index: 1;
-    opacity: 0.2;
-}
+    .gitwrapper, .gitImg, .gitDesc {
+    
+    }
 
-.gitDesc {
-    text-align: center;
-    display: block;
-    position: absolute; 
-    height: 175px;
-    width: 100%;
-    bottom: calc(50% - 35px);
-    z-index: 2;
-    font-size: 12px;
-    font-weight: bold;
-    transform: 0.5s;
-}
+    .gitImg {
+        left: 0;
+        grid-column: 1;
+        height: 100px;
+        width: 100px;
+    }
+
+    .gitDesc {
+        grid-column: 2;
+        font-size: 6;
+    }
 }
