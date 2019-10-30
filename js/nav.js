@@ -15,6 +15,21 @@ function elementVisibility(element, expression) {
     }
 }
 
+// NOT USED FOR NOW - ALLOWS TO REMOVE A SCROLL BAR, BUT PERFORMANCE SUCKS
+function elementNotHidden(element, expression) {
+    if(expression) {
+        $(element).show("fast", function() {
+            $(element).css("opacity", "1");
+            $(element).css("visibility", "visible");
+        });
+    } else {
+        $(element).hide("fast", function() {
+            $(element).css("opacity", "0");
+            // $(element).css("visibility", "hidden");
+        });
+    }
+}
+
 function moveHi(direction) {
     if($(window).width() > 600) {
         if(direction == "up") {
@@ -185,6 +200,7 @@ $(document).ready(function(){
     // ------------------- Navigation Handler ------------------
     // ---------------------------------------------------------
     $(".contact").click(function() { 
+        updateContentFromFile(lang, "contact", ".contactContent");
         elementVisibility(".backbtn", true);
         elementVisibility(".work", false);
         elementVisibility(".contact", false);
@@ -192,17 +208,17 @@ $(document).ready(function(){
         moveLine("left");
         moveHi("up");
         
-        updateContentFromFile(lang, "contact", ".contactContent");
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
     });
 
     $(".work").click(function() { 
+        updateContentFromFile(lang, "work", ".workContent");
         elementVisibility(".backbtn", true);
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
         elementVisibility(".work", false);
-        elementVisibility(".ProgLanguageGrid", true);
+        elementNotHidden(".ProgLanguageGrid", true);
         elementVisibility(".GenDescTitle", true);
         elementVisibility(".GenDescContent", true);
         elementVisibility(".WhatDoIKnow", true);
@@ -211,13 +227,13 @@ $(document).ready(function(){
         moveLine("left");
         moveHi("up");
 
-        updateContentFromFile(lang, "work", ".workContent");
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
-        elementVisibility(".workContent", true); 
+        elementNotHidden(".workContent", true); 
     });
 
     $(".about").click(function() { 
+        updateContentFromFile(lang, "about", ".aboutContent");
         elementVisibility(".backbtn", true);
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
@@ -225,10 +241,9 @@ $(document).ready(function(){
         moveLine("left");
         moveHi("up"); 
 
-        updateContentFromFile(lang, "about", ".aboutContent");
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
-        elementVisibility(".aboutContent", true);
+        elementNotHidden(".aboutContent", true);
     });
 
     $(".backbtn").click(function() { 
@@ -236,7 +251,7 @@ $(document).ready(function(){
         elementVisibility(".about", true);
         elementVisibility(".contact", true);
         elementVisibility(".work", true);
-        elementVisibility(".ProgLanguageGrid", false);
+        elementNotHidden(".ProgLanguageGrid", false);
         elementVisibility(".GenDescTitle", false);
         elementVisibility(".GenDescContent", false);
         elementVisibility(".WhatDoIKnow", false);
@@ -247,8 +262,8 @@ $(document).ready(function(){
 
         elementVisibility(".contentGrid", false);
         elementVisibility(".sectionContent", false);
-        elementVisibility(".workContent", false);
-        elementVisibility(".aboutContent", false);
+        elementNotHidden(".workContent", false);
+        elementNotHidden(".aboutContent", false);
 
     });
 
