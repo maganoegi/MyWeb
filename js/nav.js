@@ -101,6 +101,7 @@ function updateNavLanguage(lang) {
 }
 
 
+
 // ---------------------------------------------------------
 // ----------------------- Main ----------------------------
 // ---------------------------------------------------------
@@ -110,8 +111,25 @@ $(document).ready(function(){
     //     strings: ["about"],
     //     typeSpeed: 1000,
     //   });
-      
+    var speed = 1000;
+    var rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length);
+    var new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length);
 
+    setInterval(function(){ 
+
+        while(new_rdm == rdm) {
+            new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length);
+        }
+        rdm = new_rdm;
+        console.log(new_rdm);
+        var element = $(".ProgLanguageGrid > div")[new_rdm]
+        // if(element.classList.contains("web")) {
+            $(element).css("opacity", "1");
+        // }
+        setTimeout(function() {
+            $(element).css("opacity", "0.2");
+        }, speed);
+    }, speed);
     // ---------------------------------------------------------
     // ----------------------- Language Handler ----------------
     // ---------------------------------------------------------
