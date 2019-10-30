@@ -117,16 +117,13 @@ $(document).ready(function(){
     //     strings: ["about"],
     //     typeSpeed: 1000,
     //   });
+    
     var speed = 1000;
-
     setInterval(function(){ 
         
         new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length);
-        // console.log(new_rdm);
         var element = $(".ProgLanguageGrid > div")[new_rdm]
-        // if(element.classList.contains("web")) {
             $(element).css("opacity", "1");
-        // }
         setTimeout(function() {
             $(element).css("opacity", "0.2");
         }, speed);

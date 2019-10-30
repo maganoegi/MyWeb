@@ -15,7 +15,7 @@ jQuery.fn.loadRepositories = function(username) {
     $.githubUser(username, function(data) {
         var repos = data.data;
 
-        // console.log(data);
+        console.log(data);
 
         var list = "<div class=\"gitGrid\">";
         $(repos).each(function() {
