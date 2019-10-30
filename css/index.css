@@ -297,6 +297,7 @@ ul li {
 
 
 .ProgLanguageGrid {
+    visibility: hidden;
     width: 60%;
     /* background-color: aqua; */
     display: grid;
@@ -342,6 +343,7 @@ ul li {
 
     .ProgLanguageGrid {
         width: 100%;
+    }
 
 
     .content {

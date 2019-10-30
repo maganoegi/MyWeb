@@ -8,7 +8,10 @@
         "work": {
             "nav": "projects",
             "title": "My Work",
-            
+            "GenDescTitle": "What do I do?",
+            "GenDescContent": "I do what I do",
+            "WhatDoIKnow": "What do I know?",
+            "OpenSource": "My \"public\" projects",
             "content": ""
         },
         "contact": {

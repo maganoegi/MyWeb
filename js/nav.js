@@ -62,17 +62,23 @@ function moveLine(direction) {
     }
 }
 
-function updateContentFromFile(lang, section, target) {
+function updateContentFromFile(lang, section) {
     $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
         $(".sectionTitle").text(data[lang][section]["title"]);
-        switch(target) {
-            case ".aboutContent":
-                var obj = $(target).html(data[lang][section]["content"]);
+        switch(section) {
+            case "about":
+                var obj = $(".aboutContent").html(data[lang][section]["content"]);
                 obj.html(obj.html().replace(/\n/g,'<br/>'));
                 break;
-            case ".workContent":
+            case "work":
+                var obj0 = $(".GenDescTitle").html(data[lang][section]["GenDescTitle"]);
+                var obj1 = $(".GenDescContent").html(data[lang][section]["GenDescContent"]);
+                obj1.html(obj1.html().replace(/\n/g,'<br/>'));
+
+                var obj2 = $(".WhatDoIKnow").html(data[lang][section]["WhatDoIKnow"]);
+                var obj3 = $(".OpenSource").html(data[lang][section]["OpenSource"]);
                 break;
-            case ".contactContent":
+            case "contact":
                 break;
             default: 
                 break;
@@ -121,7 +127,7 @@ $(document).ready(function(){
             new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length);
         }
         rdm = new_rdm;
-        console.log(new_rdm);
+        // console.log(new_rdm);
         var element = $(".ProgLanguageGrid > div")[new_rdm]
         // if(element.classList.contains("web")) {
             $(element).css("opacity", "1");
@@ -142,43 +148,43 @@ $(document).ready(function(){
         lang = "en";
         showActiveLanguage(".en");
         updateNavLanguage("en");
-        updateContentFromFile(lang, "about", ".aboutContent");
-        updateContentFromFile(lang, "work", ".workContent");
-        updateContentFromFile(lang, "contact", ".contactContent");
+        updateContentFromFile(lang, "about");
+        updateContentFromFile(lang, "work");
+        updateContentFromFile(lang, "contact");
 
     });
     $(".fr").click(function () { 
         lang = "fr";
         showActiveLanguage(".fr");
         updateNavLanguage("fr");
-        updateContentFromFile(lang, "about", ".aboutContent");
-        updateContentFromFile(lang, "work", ".workContent");
-        updateContentFromFile(lang, "contact", ".contactContent");
+        updateContentFromFile(lang, "about");
+        updateContentFromFile(lang, "work");
+        updateContentFromFile(lang, "contact");
 
     });
     $(".sp").click(function () { 
         lang = "es";
         showActiveLanguage(".sp");
         updateNavLanguage("sp");
-        updateContentFromFile(lang, "about", ".aboutContent");
-        updateContentFromFile(lang, "work", ".workContent");
-        updateContentFromFile(lang, "contact", ".contactContent");
+        updateContentFromFile(lang, "about");
+        updateContentFromFile(lang, "work");
+        updateContentFromFile(lang, "contact");
     });
     $(".ru").click(function () { 
         lang = "ru";
         showActiveLanguage(".ru");
         updateNavLanguage("ru");
-        updateContentFromFile(lang, "about", ".aboutContent");
-        updateContentFromFile(lang, "work", ".workContent");
-        updateContentFromFile(lang, "contact", ".contactContent");
+        updateContentFromFile(lang, "about");
+        updateContentFromFile(lang, "work");
+        updateContentFromFile(lang, "contact");
     });
     $(".nl").click(function () { 
         lang = "nl";
         showActiveLanguage(".nl");
         updateNavLanguage("nl");
-        updateContentFromFile(lang, "about", ".aboutContent");
-        updateContentFromFile(lang, "work", ".workContent");
-        updateContentFromFile(lang, "contact", ".contactContent");
+        updateContentFromFile(lang, "about");
+        updateContentFromFile(lang, "work");
+        updateContentFromFile(lang, "contact");
     });
 
 
@@ -204,6 +210,12 @@ $(document).ready(function(){
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
         elementVisibility(".work", false);
+        elementVisibility(".ProgLanguageGrid", true);
+        elementVisibility(".GenDescTitle", true);
+        elementVisibility(".GenDescContent", true);
+        elementVisibility(".WhatDoIKnow", true);
+        elementVisibility(".OpenSource", true);
+
         moveLine("left");
         moveHi("up");
 
@@ -232,6 +244,12 @@ $(document).ready(function(){
         elementVisibility(".about", true);
         elementVisibility(".contact", true);
         elementVisibility(".work", true);
+        elementVisibility(".ProgLanguageGrid", false);
+        elementVisibility(".GenDescTitle", false);
+        elementVisibility(".GenDescContent", false);
+        elementVisibility(".WhatDoIKnow", false);
+        elementVisibility(".OpenSource", false);
+
         moveLine("right");
         moveHi("down"); 
 

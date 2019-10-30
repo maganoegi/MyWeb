@@ -32,8 +32,6 @@ jQuery.fn.loadRepositories = function(username) {
         }); 
         list += '</div>';
         target.empty().append(list);
-
-
     });
 
     // UNCOMMENT FOR TESTING PURPOSES!! Limited amount of queries GitHub
