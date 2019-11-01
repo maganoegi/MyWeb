@@ -5,6 +5,27 @@
 // ---------------------------------------------------------
 // ----------------------- Functions -----------------------
 // ---------------------------------------------------------
+
+function DynamicResizeContainer(section) {
+    var container_height = document.getElementById("container").offsetHeight;
+    switch (section) {
+        case "work":
+            var git_height = document.getElementById("my-github-projects").offsetHeight;
+            var new_height = (container_height + git_height);
+            // console.log(container)
+            document.getElementById("container").style.height = new_height;
+            break;
+        case "back":
+            break;
+        case "about":
+            break;
+        case "contact":
+            break;
+        default:
+            break;
+    }
+}
+
 function elementVisibility(element, expression) {
     if(expression) {
         $(element).css("opacity", "1");
@@ -15,7 +36,7 @@ function elementVisibility(element, expression) {
     }
 }
 
-// NOT USED FOR NOW - ALLOWS TO REMOVE A SCROLL BAR, BUT PERFORMANCE SUCKS
+// PERFORMANCE SUCKS
 function elementNotHidden(element, expression) {
     if(expression) {
         $(element).show("fast", function() {
@@ -128,6 +149,8 @@ function updateNavLanguage(lang) {
 // ---------------------------------------------------------
 
 $(document).ready(function(){
+    elementNotHidden(".workContent", false);
+    elementNotHidden(".aboutContent", false);
     // var typed = new Typed    out', {
     //     strings: ["about"],
     //     typeSpeed: 1000,
@@ -135,14 +158,15 @@ $(document).ready(function(){
     
     var speed = 1000;
     setInterval(function(){ 
-        
-        new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length);
+        // TODO: Fix bug: make sure the random values are not repeated, and when fixed, that the browsers don't freeze
+        new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length); 
         var element = $(".ProgLanguageGrid > div")[new_rdm]
             $(element).css("opacity", "1");
         setTimeout(function() {
             $(element).css("opacity", "0.2");
         }, speed);
     }, speed);
+
     // ---------------------------------------------------------
     // ----------------------- Language Handler ----------------
     // ---------------------------------------------------------
@@ -230,6 +254,7 @@ $(document).ready(function(){
         elementVisibility(".contentGrid", true);
         elementVisibility(".sectionContent", true);
         elementNotHidden(".workContent", true); 
+        DynamicResizeContainer("work");
     });
 
     $(".about").click(function() { 
