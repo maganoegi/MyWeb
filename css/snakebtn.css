@@ -118,13 +118,14 @@ ul li .snakebtn:hover span:nth-child(4) {
 /* SMALLER BUTTONS - LANGUAGES   */
 /*-------------------------------*/
 .smaller {
+    /* Allows for text to always fit inside */
+    padding: 20px; 
     position: relative;
-    padding: 20px; /* Allows for text to always fit inside */
     height: auto;
     font-size: 17px;
     text-align: center;
     text-decoration: none;
-    margin: 0 40px;
+    /* margin: 0 40px; */
     width: auto;
     color: black;
     cursor: pointer;

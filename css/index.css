@@ -25,7 +25,7 @@ body {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 20% 1fr 10%;
+    grid-template-rows: 20% auto 70px;
     grid-template-columns: auto minmax(20%, 80%) auto;
     grid-template-areas: 
     ". h ."
@@ -48,10 +48,12 @@ body {
 }
 
 #myNav {
+    top: 50%;
+    /* transform: translateY(50%); */
     padding: 0;
     justify-content: center;
     width: auto;
-    transform: translateY(400%);
+    /* transform: translateY(400%); */
     display: flex;
 } 
 
@@ -60,25 +62,23 @@ ul li {
 }
 
 .footer {
-    /* position:absolute;
-    bottom:0;
-    width:100%;
-    height:60px;   */
     grid-area: f;
-    display: fixed;
+    display: block;
+    height: 50px;
+    /* justify-items: bottom; */
     position: relative;
     /* background-color: aquamarine; */
 }
 
 
 .myFoot {
-    /* padding: 0; */
-    /* margin: 0; */
+    padding: 0;
+    left: auto;
+    right: auto;
     justify-items: center;
-    position: absolute;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto;
+    /* grid-template-rows: auto; */
+    margin: 0;
     width: 100%;
     grid-template-areas: 
     ". en fr sp ru nl .";
@@ -87,7 +87,7 @@ ul li {
 .smaller {
     margin: 0 !important;
     justify-self: center;
-    transform: translateY(30%);
+    /* transform: translateY(30%); */
 }
 
 .en {
@@ -174,7 +174,7 @@ ul li {
     -webkit-tap-highlight-color: transparent;
 }
 
-.contentGrid {
+/* .contentGrid {
     position: absolute;
     visibility: hidden;
     display: grid;
@@ -182,28 +182,30 @@ ul li {
     height: 65vh;
     grid-template-columns: 100%;
     grid-template-rows: 90px 10% 80%;
-}
+} */
 
 .backbtn {
     grid-row: 1;
     display: block;
     position: absolute !important;
-    margin-top: -5px !important;
+    margin-top: 4px !important;
     margin-left: 15px !important;
     opacity: 0;
     cursor: pointer;
     transition: 0.5s;
     visibility: hidden;
-    padding: 5px !important;
+    padding: 10px !important;
 }
 
 .sectionTitle {
     /* background-color: tomato; */
+    float: right;
+    display: block;
     transition: 0.5s;
     grid-row: 2;
     font-size: 40px;
     font-weight: 800;
-    margin-left: 15px;
+    /* margin-left: 30%; */
 }
 
 .sectionContent {
@@ -350,7 +352,7 @@ ul li {
 
     .content {
         overflow: visible;
-        height: fit-content;
+        /* height: fit-content; */
     }
 
     .hi {
@@ -362,8 +364,8 @@ ul li {
     #myNav {
         display: flex;
         align-items: center;
-        transform: translateY(25%) !important;
-        width: 100%;
+        /* transform: translateY(25%) !important; */
+        /* width: 100%; */
         flex-direction: column;
 
     }
@@ -384,9 +386,9 @@ ul li {
         flex: 1;
     }
 
-    #container {
+    /* #container {
         grid-template-rows: 20% auto 20%;
-    }
+    } */
 
     .line {
         height: 60%;
@@ -402,12 +404,12 @@ ul li {
     }
 
     .sectionTitle {
-        font-size: 20px;
+        font-size: 50px;
     }
 
-    .snakebtn .backbtn {
+    /* .snakebtn .backbtn {
         width: 300px;
-    }
+    } */
 
     .aboutContent {
         height: 80%;
@@ -424,16 +426,13 @@ ul li {
 
     .aboutContent, .workContent, .gitGrid {
         overflow: visible;
+        position: relative;
     }
 
-    .myFoot {
-        margin-top: 30px;
-    }
-
-    .smaller {
+    /* .smaller {
         display: flex;
         padding-top: 6px !important;
-    }
+    } */
 
     /* ul li .en {
         font-size: 40px;
@@ -468,11 +467,11 @@ ul li {
 
     .gitDesc {
         grid-column: 2;
-        font-size: 6;
+        font-size: 4;
     }
 
-    .footer {
+    /* .footer {
         grid-row-start: 3;
         grid-row-end: 4; 
-    }
+    } */
 }

@@ -6,25 +6,6 @@
 // ----------------------- Functions -----------------------
 // ---------------------------------------------------------
 
-function DynamicResizeContainer(section) {
-    var container_height = document.getElementById("container").offsetHeight;
-    switch (section) {
-        case "work":
-            var git_height = document.getElementById("my-github-projects").offsetHeight;
-            var new_height = (container_height + git_height);
-            // console.log(container)
-            document.getElementById("container").style.height = new_height;
-            break;
-        case "back":
-            break;
-        case "about":
-            break;
-        case "contact":
-            break;
-        default:
-            break;
-    }
-}
 
 function elementVisibility(element, expression) {
     if(expression) {
@@ -228,6 +209,8 @@ $(document).ready(function(){
         elementVisibility(".backbtn", true);
         elementVisibility(".work", false);
         elementVisibility(".contact", false);
+        elementVisibility(".sectionTitle", true);
+        elementNotHidden(".sectionContent", true);
         elementVisibility(".about", false);
         moveLine("left");
         moveHi("up");
@@ -247,6 +230,9 @@ $(document).ready(function(){
         elementVisibility(".GenDescContent", true);
         elementVisibility(".WhatDoIKnow", true);
         elementVisibility(".OpenSource", true);
+        elementNotHidden(".sectionContent", true);
+        elementVisibility(".sectionTitle", true);
+
 
         moveLine("left");
         moveHi("up");
@@ -259,9 +245,12 @@ $(document).ready(function(){
 
     $(".about").click(function() { 
         updateContentFromFile(lang, "about", ".aboutContent");
+        elementNotHidden(".sectionContent", true);
+
         elementVisibility(".backbtn", true);
         elementVisibility(".contact", false);
         elementVisibility(".about", false);
+        elementVisibility(".sectionTitle", true);
         elementVisibility(".work", false);
         moveLine("left");
         moveHi("up"); 
@@ -281,12 +270,13 @@ $(document).ready(function(){
         elementVisibility(".GenDescContent", false);
         elementVisibility(".WhatDoIKnow", false);
         elementVisibility(".OpenSource", false);
+        elementVisibility(".sectionTitle", false);
 
         moveLine("right");
         moveHi("down"); 
 
         elementVisibility(".contentGrid", false);
-        elementVisibility(".sectionContent", false);
+        elementNotHidden(".sectionContent", false);
         elementNotHidden(".workContent", false);
         elementNotHidden(".aboutContent", false);
 
