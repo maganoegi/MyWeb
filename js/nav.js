@@ -8,27 +8,30 @@
 
 
 function elementVisibility(element, expression) {
+    let speed = 200;
     if(expression) {
-        $(element).css("opacity", "1");
-        $(element).css("visibility", "visible");
-    } else {
-        $(element).css("opacity", "0");
-        $(element).css("visibility", "hidden");
-    }
-}
+        // $(element).fadeIn("fast");
+        $(element).animate({
+            opacity: 1
+        }, speed, function() {
+            $(element).show();
+        });
 
-// PERFORMANCE SUCKS
-function elementNotHidden(element, expression) {
-    if(expression) {
-        $(element).show("fast", function() {
-            $(element).css("opacity", "1");
-            $(element).css("visibility", "visible");
-        });
+        // $(element).show("fast", function() {
+        //     $(element).css("opacity", "1");
+        //     $(element).css("visibility", "visible");
+        // });
     } else {
-        $(element).hide("fast", function() {
-            $(element).css("opacity", "0");
-            // $(element).css("visibility", "hidden");
+        // $(element).fadeOut("fast");
+        $(element).animate({
+            opacity: 0
+        }, speed, function() {
+            $(element).hide();
         });
+        // $(element).hide("fast", function() {
+        //     $(element).css("opacity", "0");
+        //     $(element).css("visibility", "hidden");
+        // });
     }
 }
 
@@ -130,8 +133,10 @@ function updateNavLanguage(lang) {
 // ---------------------------------------------------------
 
 $(document).ready(function(){
-    elementNotHidden(".workContent", false);
-    elementNotHidden(".aboutContent", false);
+    elementVisibility(".workContent", false);
+    elementVisibility(".aboutContent", false);
+    elementVisibility(".sectionContent", false);
+
     // var typed = new Typed    out', {
     //     strings: ["about"],
     //     typeSpeed: 1000,
@@ -205,81 +210,70 @@ $(document).ready(function(){
     // ------------------- Navigation Handler ------------------
     // ---------------------------------------------------------
     $(".contact").click(function() { 
-        updateContentFromFile(lang, "contact", ".contactContent");
-        elementVisibility(".backbtn", true);
-        elementVisibility(".work", false);
-        elementVisibility(".contact", false);
-        elementVisibility(".sectionTitle", true);
-        elementNotHidden(".sectionContent", true);
-        elementVisibility(".about", false);
         moveLine("left");
         moveHi("up");
-        
-        elementVisibility(".contentGrid", true);
+
+        updateContentFromFile(lang, "contact", ".contactContent");
+
+        elementVisibility("#myNav", false);
+
+        elementVisibility(".backbtn", true);
+        elementVisibility(".sectionTitle", true);
         elementVisibility(".sectionContent", true);
     });
 
     $(".work").click(function() { 
-        updateContentFromFile(lang, "work", ".workContent");
-        elementVisibility(".backbtn", true);
-        elementVisibility(".contact", false);
-        elementVisibility(".about", false);
-        elementVisibility(".work", false);
-        elementNotHidden(".ProgLanguageGrid", true);
-        elementVisibility(".GenDescTitle", true);
-        elementVisibility(".GenDescContent", true);
-        elementVisibility(".WhatDoIKnow", true);
-        elementVisibility(".OpenSource", true);
-        elementNotHidden(".sectionContent", true);
-        elementVisibility(".sectionTitle", true);
-
 
         moveLine("left");
         moveHi("up");
 
-        elementVisibility(".contentGrid", true);
-        elementVisibility(".sectionContent", true);
-        elementNotHidden(".workContent", true); 
-        DynamicResizeContainer("work");
+        updateContentFromFile(lang, "work", ".workContent");
+
+        elementVisibility("#myNav", false);
+        elementVisibility(".backbtn", true);
+        elementVisibility(".sectionTitle", true);
+        elementVisibility(".sectionContent", true)
+
+        elementVisibility(".ProgLanguageGrid", true);
+        elementVisibility(".GenDescTitle", true);
+        elementVisibility(".GenDescContent", true);
+        elementVisibility(".WhatDoIKnow", true);
+        elementVisibility(".OpenSource", true);
+        elementVisibility(".workContent", true); 
+
     });
 
     $(".about").click(function() { 
-        updateContentFromFile(lang, "about", ".aboutContent");
-        elementNotHidden(".sectionContent", true);
-
-        elementVisibility(".backbtn", true);
-        elementVisibility(".contact", false);
-        elementVisibility(".about", false);
-        elementVisibility(".sectionTitle", true);
-        elementVisibility(".work", false);
         moveLine("left");
         moveHi("up"); 
 
-        elementVisibility(".contentGrid", true);
+        updateContentFromFile(lang, "about", ".aboutContent");
+
+        elementVisibility("#myNav", false);
+        elementVisibility(".backbtn", true);
+
+        elementVisibility(".sectionTitle", true);
         elementVisibility(".sectionContent", true);
-        elementNotHidden(".aboutContent", true);
+
+        elementVisibility(".aboutContent", true);
+
     });
 
     $(".backbtn").click(function() { 
+        moveLine("right");
+        moveHi("down"); 
+        
         elementVisibility(".backbtn", false);
-        elementVisibility(".about", true);
-        elementVisibility(".contact", true);
-        elementVisibility(".work", true);
-        elementNotHidden(".ProgLanguageGrid", false);
+        elementVisibility("#myNav", true);
+
+        elementVisibility(".sectionTitle", false);
+        elementVisibility(".sectionContent", false);
+        elementVisibility(".aboutContent", false);
+        elementVisibility(".ProgLanguageGrid", false);
         elementVisibility(".GenDescTitle", false);
         elementVisibility(".GenDescContent", false);
         elementVisibility(".WhatDoIKnow", false);
         elementVisibility(".OpenSource", false);
-        elementVisibility(".sectionTitle", false);
-
-        moveLine("right");
-        moveHi("down"); 
-
-        elementVisibility(".contentGrid", false);
-        elementNotHidden(".sectionContent", false);
-        elementNotHidden(".workContent", false);
-        elementNotHidden(".aboutContent", false);
-
+        elementVisibility(".workContent", false); 
     });
-
 });
