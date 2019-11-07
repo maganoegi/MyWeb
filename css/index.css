@@ -53,7 +53,9 @@ body {
 #myNav {
     width: 50%;
     height: 50%;
+    /* justify-items: center; */
     top: 25%;
+    /* left: 50%; */
     margin: 0;
     position: relative;
     /* top: 50%; */
@@ -61,6 +63,7 @@ body {
     transform: translateY(50%);
     padding: 0;
     margin: 0 auto;
+    text-align: center;
     /* transform: translateY(400%); */
 } 
 
@@ -75,6 +78,7 @@ ul li {
     height: 50px;
     /* justify-items: bottom; */
     position: relative;
+
     /* background-color: aquamarine; */
 }
 
@@ -87,15 +91,16 @@ ul li {
     /* grid-template-rows: auto; */
     margin: 0 auto;
     width: 50%;
-    position: relative;
-    /* grid-template-columns: repeat(100px); */
+    text-align: center;
+    /* position: relative; */
+    grid-template-columns: repeat(5, 12%);
     grid-template-areas: 
-    ". en fr sp ru nl .";
+    "en fr sp ru nl";
 }
 
 .myFoot ul li {
     margin: 0 auto;
-    justify-self: center;
+    /* justify-self: center; */
 }
 
 .smaller {
