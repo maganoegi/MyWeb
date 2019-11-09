@@ -1,5 +1,7 @@
 {
     "en": {
+        "name": "sergey platonov",
+        "back": "back",
         "about": {
             "nav": "about",
             "title": "About Me",
@@ -9,7 +11,7 @@
             "nav": "projects",
             "title": "My Work",
             "GenDescTitle": "What do I do?",
-            "GenDescContent": "I do what I do best",
+            "GenDescContent": "My versatile university curriculum and projects aside, I am working on a number of projects that interest me personally and give me a better understanding of the current market and technological developments. These endeavors include: <ul><li>several applications of genetical algorithms towards real-life problems</li>\n<li>speech recognizer (à la Siri) in order to understand the tech behind</li>\n<li>full-stack web development for a startup</li>\n<li>an attempt to get my own startup off the ground</li></ul>Below you will find a number of repositories that I am allowed to publicly display.\n \nFor the past 4 years I have been working part-time in a restaurant in order to finance my studies. This experience taught me how to work, solve problems efficienty, in a team, surrounded by people of all walks of life and under (often) great pressure. This made me grow as a person. Now I feel confident enough about my tech skills to immerge myself into the IT market, in order to grow as an engineer.\n ",
             "WhatDoIKnow": "What do I know?",
             "OpenSource": "My \"public\" projects"
         },
@@ -20,6 +22,8 @@
         }
     },
     "fr": {
+        "name": "sergey platonov",
+        "back": "retour",
         "about": {
             "nav": "à propos",
             "title": "A propos de moi",
@@ -37,9 +41,11 @@
         }
     },
     "es": {
+        "name": "sergey platonov",
+        "back": "regresar",
         "about": {
             "nav": "",
-            "title": "",
+            "title": "asd",
             "content": ""
         },
         "work": {
@@ -50,9 +56,11 @@
         }
     },
     "ru": {
+        "name": "сергей платонов",
+        "back": "назад",
         "about": {
             "nav": "",
-            "title": "",
+            "title": "sad",
             "content": ""
         },
         "work": {
@@ -63,9 +71,11 @@
         }
     },
     "nl": {
+        "name": "sergey platonov",
+        "back": "terug",
         "about": {
             "nav": "",
-            "title": "",
+            "title": "asd",
             "content": ""
         },
         "work": {

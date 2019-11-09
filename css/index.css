@@ -51,7 +51,6 @@ body {
 }
 
 #myNav {
-    width: 50%;
     height: 50%;
     /* justify-items: center; */
     top: 25%;
@@ -95,7 +94,7 @@ ul li {
     /* position: relative; */
     grid-template-columns: repeat(5, 12%);
     grid-template-areas: 
-    "en fr sp ru nl";
+    "en fr es ru nl";
 }
 
 .myFoot ul li {
@@ -117,8 +116,8 @@ ul li {
     grid-area: fr;
 }
 
-.sp {
-    grid-area: sp;
+.es {
+    grid-area: es;
 }
 
 .ru {
@@ -133,6 +132,7 @@ ul li {
     position: absolute;
     height: 70%;
     width: 30%;
+    left: 8%;
 }
 
 .segment {
@@ -311,6 +311,7 @@ ul li {
 .GenDescContent {
     font-size: 20px;
 }
+
 
 .title {
     font-size: 30px;

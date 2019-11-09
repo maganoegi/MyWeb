@@ -8,30 +8,29 @@
 
 
 function elementVisibility(element, expression) {
-    let speed = 200;
+    let speed = 50;
     if(expression) {
-        // $(element).fadeIn("fast");
-        $(element).animate({
-            opacity: 1
-        }, speed, function() {
-            $(element).show();
+        $(element).show("fast", function() {
+            $(element).animate({
+                opacity: 1
+            }, speed);
         });
-
-        // $(element).show("fast", function() {
-        //     $(element).css("opacity", "1");
-        //     $(element).css("visibility", "visible");
+        // $(element).animate({
+        //     opacity: 1
+        // }, speed, function() {
+        //     $(element).show();
         // });
     } else {
-        // $(element).fadeOut("fast");
+        // $(element).hide(function() {
+        //     $(element).animate({
+        //         opacity: 0
+        //     }, speed);
+        // });
         $(element).animate({
             opacity: 0
         }, speed, function() {
-            $(element).hide();
+            $(element).hide("fast");
         });
-        // $(element).hide("fast", function() {
-        //     $(element).css("opacity", "0");
-        //     $(element).css("visibility", "hidden");
-        // });
     }
 }
 
@@ -82,23 +81,29 @@ function moveLine(direction) {
     }
 }
 
+
 function updateContentFromFile(lang, section) {
     $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
-        $(".sectionTitle").text(data[lang][section]["title"]);
         switch(section) {
             case "about":
+                $(".sectionTitle").text(data[lang][section]["title"]);
                 var obj = $(".aboutContent").html(data[lang][section]["content"]);
                 obj.html(obj.html().replace(/\n/g,'<br/>'));
                 break;
             case "work":
-                var obj0 = $(".GenDescTitle").html(data[lang][section]["GenDescTitle"]);
+                $(".sectionTitle").text(data[lang][section]["title"]);
+                $(".GenDescTitle").html(data[lang][section]["GenDescTitle"]);
                 var obj1 = $(".GenDescContent").html(data[lang][section]["GenDescContent"]);
                 obj1.html(obj1.html().replace(/\n/g,'<br/>'));
 
-                var obj2 = $(".WhatDoIKnow").html(data[lang][section]["WhatDoIKnow"]);
-                var obj3 = $(".OpenSource").html(data[lang][section]["OpenSource"]);
+                $(".WhatDoIKnow").html(data[lang][section]["WhatDoIKnow"]);
+                $(".OpenSource").html(data[lang][section]["OpenSource"]);
                 break;
             case "contact":
+                $(".sectionTitle").text(data[lang][section]["title"]);
+                break;
+            case "base":
+                updateNavLanguage(lang);
                 break;
             default: 
                 break;
@@ -107,7 +112,7 @@ function updateContentFromFile(lang, section) {
 }
 
 function showActiveLanguage(target) {
-    var allLang = [".en", ".fr", ".sp", ".ru", ".nl"];
+    var allLang = [".en", ".fr", ".es", ".ru", ".nl"];
     allLang.forEach(element => {
         if(element == target) {
             $(element).animate({"background-color":"black","color":"transparent !important"}, 100);
@@ -123,6 +128,8 @@ function updateNavLanguage(lang) {
         $("div.about").html(data[lang]["about"]["nav"] + four_span);
         $("div.work").html(data[lang]["work"]["nav"] + four_span);
         $("div.contact").html(data[lang]["contact"]["nav"] + four_span);
+        $("div.hi").html(data[lang]["name"] + four_span);
+        $("div.backbtn").html(data[lang]["back"] + four_span);
     }});
 }
 
@@ -135,7 +142,9 @@ function updateNavLanguage(lang) {
 $(document).ready(function(){
     elementVisibility(".workContent", false);
     elementVisibility(".aboutContent", false);
+    elementVisibility(".sectionTitle", false);
     elementVisibility(".sectionContent", false);
+    elementVisibility(".ProgLanguageGrid", false);
 
     // var typed = new Typed    out', {
     //     strings: ["about"],
@@ -157,54 +166,37 @@ $(document).ready(function(){
     // ----------------------- Language Handler ----------------
     // ---------------------------------------------------------
     var lang = "en";
+    var currentSection = "base";
+
     showActiveLanguage(".en");
-    updateNavLanguage(".en");
+    updateNavLanguage("en");
 
     // TODO: implement content update upon language change.
     $(".en").click(function () { 
         lang = "en";
-        showActiveLanguage(".en");
-        updateNavLanguage("en");
-        updateContentFromFile(lang, "about");
-        updateContentFromFile(lang, "work");
-        updateContentFromFile(lang, "contact");
-
+        showActiveLanguage("." + lang);
+        updateContentFromFile(lang, currentSection);
     });
     $(".fr").click(function () { 
         lang = "fr";
-        showActiveLanguage(".fr");
-        updateNavLanguage("fr");
-        updateContentFromFile(lang, "about");
-        updateContentFromFile(lang, "work");
-        updateContentFromFile(lang, "contact");
-
+        showActiveLanguage("." + lang);
+        updateContentFromFile(lang, currentSection);
     });
-    $(".sp").click(function () { 
+    $(".es").click(function () { 
         lang = "es";
-        showActiveLanguage(".sp");
-        updateNavLanguage("sp");
-        updateContentFromFile(lang, "about");
-        updateContentFromFile(lang, "work");
-        updateContentFromFile(lang, "contact");
+        showActiveLanguage("." + lang);
+        updateContentFromFile(lang, currentSection);
     });
     $(".ru").click(function () { 
         lang = "ru";
-        showActiveLanguage(".ru");
-        updateNavLanguage("ru");
-        updateContentFromFile(lang, "about");
-        updateContentFromFile(lang, "work");
-        updateContentFromFile(lang, "contact");
+        showActiveLanguage("." + lang);
+        updateContentFromFile(lang, currentSection);
     });
     $(".nl").click(function () { 
         lang = "nl";
-        showActiveLanguage(".nl");
-        updateNavLanguage("nl");
-        updateContentFromFile(lang, "about");
-        updateContentFromFile(lang, "work");
-        updateContentFromFile(lang, "contact");
+        showActiveLanguage("." + lang);
+        updateContentFromFile(lang, currentSection);
     });
-
-
 
     // ---------------------------------------------------------
     // ------------------- Navigation Handler ------------------
@@ -212,60 +204,76 @@ $(document).ready(function(){
     $(".contact").click(function() { 
         moveLine("left");
         moveHi("up");
+        currentSection = "contact";
+        updateContentFromFile(lang, currentSection);
 
-        updateContentFromFile(lang, "contact", ".contactContent");
-
-        elementVisibility("#myNav", false);
-
-        elementVisibility(".backbtn", true);
-        elementVisibility(".sectionTitle", true);
-        elementVisibility(".sectionContent", true);
+        $("#myNav").animate({
+            opacity: 0
+        }, 50, function() {
+            $("#myNav").hide();
+                        
+            elementVisibility(".backbtn", true);
+            elementVisibility(".sectionTitle", true);
+            elementVisibility(".sectionContent", true);
+        });
     });
 
     $(".work").click(function() { 
 
         moveLine("left");
         moveHi("up");
+        currentSection = "work";
+        updateContentFromFile(lang, currentSection);
 
-        updateContentFromFile(lang, "work", ".workContent");
-
-        elementVisibility("#myNav", false);
-        elementVisibility(".backbtn", true);
-        elementVisibility(".sectionTitle", true);
-        elementVisibility(".sectionContent", true)
-
-        elementVisibility(".ProgLanguageGrid", true);
-        elementVisibility(".GenDescTitle", true);
-        elementVisibility(".GenDescContent", true);
-        elementVisibility(".WhatDoIKnow", true);
-        elementVisibility(".OpenSource", true);
-        elementVisibility(".workContent", true); 
-
+        $("#myNav").animate({
+            opacity: 0
+        }, 50, function() {
+            $("#myNav").hide();
+            elementVisibility(".backbtn", true);
+            elementVisibility(".sectionTitle", true);
+            elementVisibility(".sectionContent", true)
+            
+            elementVisibility(".ProgLanguageGrid", true);
+            elementVisibility(".GenDescTitle", true);
+            elementVisibility(".GenDescContent", true);
+            elementVisibility(".WhatDoIKnow", true);
+            elementVisibility(".OpenSource", true);
+            elementVisibility(".workContent", true); 
+        }); 
     });
 
     $(".about").click(function() { 
         moveLine("left");
         moveHi("up"); 
 
-        updateContentFromFile(lang, "about", ".aboutContent");
+        currentSection = "about";
+        updateContentFromFile(lang, currentSection);
 
-        elementVisibility("#myNav", false);
-        elementVisibility(".backbtn", true);
+        $("#myNav").animate({
+            opacity: 0
+        }, 50, function() {
+            $("#myNav").hide();
 
-        elementVisibility(".sectionTitle", true);
-        elementVisibility(".sectionContent", true);
-
-        elementVisibility(".aboutContent", true);
-
+            elementVisibility(".backbtn", true);
+            
+            elementVisibility(".sectionTitle", true);
+            elementVisibility(".sectionContent", true);
+            
+            elementVisibility(".aboutContent", true);
+            
+        });
     });
 
     $(".backbtn").click(function() { 
+        currentSection = "base";
+        updateContentFromFile(lang, currentSection);
         moveLine("right");
         moveHi("down"); 
         
         elementVisibility(".backbtn", false);
         elementVisibility("#myNav", true);
 
+        
         elementVisibility(".sectionTitle", false);
         elementVisibility(".sectionContent", false);
         elementVisibility(".aboutContent", false);
