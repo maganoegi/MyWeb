@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/snakebtn.css">
     <link rel="stylesheet" href="/css/hi.css">
     <link rel="stylesheet" href="/css/glitch.css">
+    <link rel="stylesheet" href="/css/flip.css">
 
     <title>Sergey Platonov</title>
     
@@ -25,6 +26,7 @@
         integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8="
         crossorigin="anonymous"></script>
     <script src="/js/nav.js"></script>
+    <script src="/js/jquery.visible.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> -->
 </head>
 <body>
@@ -64,7 +66,201 @@
                 <div class="sectionTitle"></div>
             </span>
                 <div class="sectionContent">
-                    <div class="aboutContent"></div>
+                    <div class="aboutPlusImages">
+                        <div class="aboutContent"></div>
+                        <div class="aboutImages">
+                            <div class="flips-grid">
+                                <div class="flip-grid" id="bbgrid">
+                                    <div class="flip-container" id="bb1">
+                                        <div class="flipper">
+                                            <div class="front">bb1 front</div>
+                                            <div class="back">bb1 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb2">
+                                        <div class="flipper">
+                                            <div class="front">bb2 front</div>
+                                            <div class="back">bb2 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb3">
+                                        <div class="flipper">
+                                            <div class="front">bb3 front</div>
+                                            <div class="back">bb3 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb4">
+                                        <div class="flipper">
+                                            <div class="front">bb4 front</div>
+                                            <div class="back">bb4 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb5">
+                                        <div class="flipper">
+                                            <div class="front">bb5 front</div>
+                                            <div class="back">bb5 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb6">
+                                        <div class="flipper">
+                                            <div class="front">bb6 front</div>
+                                            <div class="back">bb6 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb7">
+                                        <div class="flipper">
+                                            <div class="front">bb7 front</div>
+                                            <div class="back">bb7 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb8">
+                                        <div class="flipper">
+                                            <div class="front">bb8 front</div>
+                                            <div class="back">bb8 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="bb9">
+                                        <div class="flipper">
+                                            <div class="front">bb9 front</div>
+                                            <div class="back">bb9 back</div>
+                                        </div></div>
+                                </div>
+                                <div class="flip-grid" id="megrid">
+                                    <div class="flip-container" id="me1">
+                                        <div class="flipper">
+                                            <div class="front">me1 front</div>
+                                            <div class="back">me1 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me2">
+                                        <div class="flipper">
+                                            <div class="front">me2 front</div>
+                                            <div class="back">me2 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me3">
+                                        <div class="flipper">
+                                            <div class="front">me3 front</div>
+                                            <div class="back">me3 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me4">
+                                        <div class="flipper">
+                                            <div class="front">me4 front</div>
+                                            <div class="back">me4 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me5">
+                                        <div class="flipper">
+                                            <div class="front">me5 front</div>
+                                            <div class="back">me5 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me6">
+                                        <div class="flipper">
+                                            <div class="front">me6 front</div>
+                                            <div class="back">me6 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me7">
+                                        <div class="flipper">
+                                            <div class="front">me7 front</div>
+                                            <div class="back">me7 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me8">
+                                        <div class="flipper">
+                                            <div class="front">me8 front</div>
+                                            <div class="back">me8 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me9">
+                                        <div class="flipper">
+                                            <div class="front">me9 front</div>
+                                            <div class="back">me9 back</div>
+                                        </div></div>
+                                </div>
+                                <div class="flip-grid" id="me2grid">
+                                    <div class="flip-container" id="me21">
+                                        <div class="flipper">
+                                            <div class="front">bb1 front</div>
+                                            <div class="back">bb1 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me22">
+                                        <div class="flipper">
+                                            <div class="front">bb2 front</div>
+                                            <div class="back">bb2 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me23">
+                                        <div class="flipper">
+                                            <div class="front">bb3 front</div>
+                                            <div class="back">bb3 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me24">
+                                        <div class="flipper">
+                                            <div class="front">bb4 front</div>
+                                            <div class="back">bb4 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me25">
+                                        <div class="flipper">
+                                            <div class="front">bb5 front</div>
+                                            <div class="back">bb5 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me26">
+                                        <div class="flipper">
+                                            <div class="front">bb6 front</div>
+                                            <div class="back">bb6 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me27">
+                                        <div class="flipper">
+                                            <div class="front">bb7 front</div>
+                                            <div class="back">bb7 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me28">
+                                        <div class="flipper">
+                                            <div class="front">bb8 front</div>
+                                            <div class="back">bb8 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me29">
+                                        <div class="flipper">
+                                            <div class="front">bb9 front</div>
+                                            <div class="back">bb9 back</div>
+                                        </div></div>
+                                </div>
+                                <div class="flip-grid" id="megrid">
+                                    <div class="flip-container" id="me1">
+                                        <div class="flipper">
+                                            <div class="front">me1 front</div>
+                                            <div class="back">me1 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me2">
+                                        <div class="flipper">
+                                            <div class="front">me2 front</div>
+                                            <div class="back">me2 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me3">
+                                        <div class="flipper">
+                                            <div class="front">me3 front</div>
+                                            <div class="back">me3 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me4">
+                                        <div class="flipper">
+                                            <div class="front">me4 front</div>
+                                            <div class="back">me4 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me5">
+                                        <div class="flipper">
+                                            <div class="front">me5 front</div>
+                                            <div class="back">me5 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me6">
+                                        <div class="flipper">
+                                            <div class="front">me6 front</div>
+                                            <div class="back">me6 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me7">
+                                        <div class="flipper">
+                                            <div class="front">me7 front</div>
+                                            <div class="back">me7 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me8">
+                                        <div class="flipper">
+                                            <div class="front">me8 front</div>
+                                            <div class="back">me8 back</div>
+                                        </div></div>
+                                    <div class="flip-container" id="me9">
+                                        <div class="flipper">
+                                            <div class="front">me9 front</div>
+                                            <div class="back">me9 back</div>
+                                        </div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="GenDescTitle title"></div>
                     <div class="GenDescContent"></div>
                     <div class="WhatDoIKnow title"></div>

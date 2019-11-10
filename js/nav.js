@@ -1,5 +1,6 @@
 
-
+// https://css-tricks.com/slide-in-as-you-scroll-down-boxes/
+// https://davidwalsh.name/css-flip
 
 
 // ---------------------------------------------------------
@@ -81,7 +82,7 @@ function moveLine(direction) {
     }
 }
 
-
+// TODO: back button not translated when language changed mid-section
 function updateContentFromFile(lang, section) {
     $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
         switch(section) {
@@ -142,6 +143,7 @@ function updateNavLanguage(lang) {
 $(document).ready(function(){
     elementVisibility(".workContent", false);
     elementVisibility(".aboutContent", false);
+    elementVisibility(".aboutImages", false);
     elementVisibility(".sectionTitle", false);
     elementVisibility(".sectionContent", false);
     elementVisibility(".ProgLanguageGrid", false);
@@ -255,6 +257,7 @@ $(document).ready(function(){
             $("#myNav").hide();
 
             elementVisibility(".backbtn", true);
+            elementVisibility(".aboutImages", true);
             
             elementVisibility(".sectionTitle", true);
             elementVisibility(".sectionContent", true);
@@ -276,6 +279,7 @@ $(document).ready(function(){
         
         elementVisibility(".sectionTitle", false);
         elementVisibility(".sectionContent", false);
+        elementVisibility(".aboutImages", false);
         elementVisibility(".aboutContent", false);
         elementVisibility(".ProgLanguageGrid", false);
         elementVisibility(".GenDescTitle", false);
@@ -283,5 +287,23 @@ $(document).ready(function(){
         elementVisibility(".WhatDoIKnow", false);
         elementVisibility(".OpenSource", false);
         elementVisibility(".workContent", false); 
+    });
+
+
+    $(window).scroll(function(event) {
+  
+        $(".flipper").each(function(i, el) {
+            var el = $(el);
+            var degree = 0;
+            if (el.visible(true)) {
+                degree = 180;
+            } else {
+                degree = 0;
+            } 
+            var formattedDegree = "rotateY(" + degree + "deg)";
+            el.css({
+                transform: formattedDegree
+            });
+        });
     });
 });

@@ -246,9 +246,17 @@ ul li {
     overflow: visible;
     display: inline-block;
     position: relative;
+    margin-bottom: 50px;
     height: 100%;
-    width: 100%;
+    width: 50%;
     margin-left: 15px;
+}
+
+.aboutImages {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    margin-left: 150px;
 }
 
 .workContent {
@@ -266,6 +274,7 @@ ul li {
     overflow: visible;
     grid-template-columns: repeat(auto-fill, 200px);
     gap: 40px;
+    margin-bottom: 50px;
 }
 
 .gitwrapper {
