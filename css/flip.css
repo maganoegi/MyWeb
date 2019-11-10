@@ -40,16 +40,20 @@
 
 .flip-container, .front, .back {
 	width: 85.2px;
-	height: 96.6px;
+    height: 96.6px;
+    font-size: 0;
 }
 
 
 /* Image dimensions: 495 x 579 -> 165 x 193  */
 .flipper .back img {
-    max-height: 100%;
-    max-width: 100%;
+    display: block; 
+    height: 96.6px; /* THE SAME AS THE ONES ABOVE!! */
+    width: 85.2px;
+    /* max-height: 100%; */
+    /* max-width: 100%; */
     margin: 0;
-
+    /* float:left; */
 }
 
 /* flip speed goes here */
@@ -79,5 +83,5 @@
 /* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
