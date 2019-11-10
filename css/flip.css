@@ -83,5 +83,5 @@
 /* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
-    /* background-color: aquamarine; */
+    background-color: aquamarine;
 }
