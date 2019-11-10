@@ -308,16 +308,19 @@ $(document).ready(function(){
         var lower = 0;
         var higher = 0;
 
-        if(currentRelative <= 8) {
+        if(currentRelative <= 3) {
             lower = 0;
             higher = lower + 8;
-        } else if(currentRelative >= 18) {
+        } else if(currentRelative >= 23) {
             higher = 26;
             lower = higher - 8;
         } else {
             lower = currentRelative - 4;
             higher = currentRelative + 4;
         }
+
+        console.log("lower:" + lower);
+        console.log("higher:" + higher);
         
         for(i = 0; i < 27; i++) {
             var element = $(elements[i]).children("div.flipper");
