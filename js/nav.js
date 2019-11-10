@@ -319,9 +319,6 @@ $(document).ready(function(){
             higher = currentRelative + 4;
         }
 
-        console.log("lower:" + lower);
-        console.log("higher:" + higher);
-        
         for(i = 0; i < 27; i++) {
             var element = $(elements[i]).children("div.flipper");
             if(i >= lower && i <= higher) {
