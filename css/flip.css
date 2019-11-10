@@ -8,7 +8,7 @@
     "me"
     "me2"
     "bb";
-    row-gap: 20%;
+    row-gap: 10%;
     
 }
 
@@ -54,7 +54,6 @@
 /* hide back of pane during swap */
 .front, .back {
 	backface-visibility: hidden;
-    border: 1px solid black;
 
 	position: absolute;
 	top: 0;
