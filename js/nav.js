@@ -134,6 +134,14 @@ function updateNavLanguage(lang) {
     }});
 }
 
+function getScrollPercentage() {
+    var h = document.documentElement,
+    b = document.body,
+    st = 'scrollTop',
+    sh = 'scrollHeight';
+
+    return ((h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
+}
 
 
 // ---------------------------------------------------------
@@ -291,19 +299,58 @@ $(document).ready(function(){
 
 
     $(window).scroll(function(event) {
-  
-        $(".flipper").each(function(i, el) {
-            var el = $(el);
-            var degree = 0;
-            if (el.visible(true)) {
-                degree = 180;
+
+        currentPos = getScrollPercentage();
+        currentRelative = Math.round(getScrollPercentage() / 3.6);
+        var elements = ["#me1", "#me2", "#me3", "#me4", "#me5", "#me6", "#me7", "#me8", "#me9",
+                        "#me21", "#me22", "#me23", "#me24", "#me25", "#me26", "#me27", "#me28", "#me29",
+                        "#bb1", "#bb2", "#bb3", "#bb4", "#bb5", "#bb6", "#bb7", "#bb8", "#bb9"];
+        var lower = 0;
+        var higher = 0;
+
+        if(currentRelative <= 8) {
+            lower = 0;
+            higher = lower + 8;
+        } else if(currentRelative >= 18) {
+            higher = 26;
+            lower = higher - 8;
+        } else {
+            lower = currentRelative - 4;
+            higher = currentRelative + 4;
+        }
+        
+        for(i = 0; i < 27; i++) {
+            var element = $(elements[i]).children("div.flipper");
+            if(i >= lower && i <= higher) {
+                if(!element.hasClass("visible")) {
+                    element.addClass("visible");
+                    element.css({
+                        transform: "rotateY(180deg)"
+                    });
+                }
             } else {
-                degree = 0;
-            } 
-            var formattedDegree = "rotateY(" + degree + "deg)";
-            el.css({
-                transform: formattedDegree
-            });
-        });
+                if(element.hasClass("visible")) {
+                    element.removeClass("visible");
+                    element.css({
+                        transform: "rotateY(0deg)"
+                    });
+                }
+            }
+    
+        }
+
+        // $(".flipper").each(function(i, el) {
+        //     var el = $(el);
+        //     var degree = 0;
+        //     if (el.visible(true)) {
+        //         degree = 180;
+        //     } else {
+        //         degree = 0;
+        //     } 
+        //     var formattedDegree = "rotateY(" + degree + "deg)";
+        //     el.css({
+        //         transform: formattedDegree
+        //     });
+        // });
     });
 });
