@@ -11,7 +11,7 @@
             "nav": "projects",
             "title": "My Work",
             "GenDescTitle": "What do I do?",
-            "GenDescContent": "My versatile university curriculum and projects aside, I am working on a number of projects that interest me personally and give me a better understanding of the current market and technological developments. These endeavors include: <ul><li>several applications of genetical algorithms towards real-life problems</li>\n<li>speech recognizer (à la Siri) in order to understand the tech behind</li>\n<li>full-stack web development for a startup</li>\n<li>an attempt to get my own startup off the ground</li></ul>Below you will find a number of repositories that I am allowed to publicly display.",
+            "GenDescContent": "My versatile university curriculum and projects aside, I am working on a number of projects that interest me personally and give me a better understanding of the current market and technological developments. These endeavors include:\n\n &#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;several applications of genetical algorithms towards real-life problems\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speech recognizer (à la Siri) in order to understand the tech behind\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;full-stack web development for a startup\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an attempt to get my own startup off the ground\n\nBelow you will find a number of repositories that I am allowed to publicly display.",
             "WhatDoIKnow": "What do I know?",
             "OpenSource": "My \"public\" projects"
         },

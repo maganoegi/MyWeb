@@ -67,7 +67,7 @@ body {
 } 
 
 ul li {
-    list-style: none;
+    /* list-style: none; */
     display: inline-block;
 }
 
@@ -372,7 +372,7 @@ ul li {
 
 
 
-@media (max-width: 600px) { /*------------------------------------------------------------------------------------*/
+@media (max-width: 800px) { /*------------------------------------------------------------------------------------*/
 
     .ProgLanguageGrid {
         width: 100%;
@@ -524,6 +524,16 @@ ul li {
         grid-column: 2;
         font-size: 15px;
     }
+
+    .GenDescContent {
+        font-size: 15px;
+    }
+
+    .sectionContent .GenDescContent ul li {
+        /* list-style: disc;
+        list-style-position: inside; */
+    }
+
 
 
     /* .footer {
