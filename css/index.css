@@ -256,7 +256,7 @@ ul li {
     display: inline-block;
     position: absolute;
     height: 100%;
-    margin-left: 150px;
+    margin-left: 50px;
 }
 
 .workContent {
@@ -378,6 +378,10 @@ ul li {
         width: 100%;
     }
 
+    body {
+        width: calc(100vw - 10px); 
+
+    }
 
     .content {
         overflow: visible;
@@ -393,7 +397,7 @@ ul li {
     #myNav {
         display: flex;
         align-items: center;
-        /* transform: translateY(25%) !important; */
+        transform: translateY(-80%) !important;
         /* width: 100%; */
         flex-direction: column;
 
@@ -433,7 +437,7 @@ ul li {
     }
 
     .sectionTitle {
-        font-size: 50px;
+        font-size: 30px;
     }
 
     /* .snakebtn .backbtn {
@@ -441,21 +445,43 @@ ul li {
     } */
 
     .aboutContent {
-        height: 80%;
+        position: relative;
+        z-index: 1;
+
+        height: 100%;
         margin: 10px 0;
         word-wrap: normal;
         font-size: 15px;
+        width: 100%;
+
     }
+
+    .aboutPlusImages {
+
+    }
+
+    .aboutImages {
+        display: block;
+        position: absolute;
+        float: left;
+        left: 0;
+        z-index: -1;
+    }
+
 
     .sectionContent {
         overflow: visible;
         position: relative;
-        height: 100%;
+        /* height: 100%; */
+    }
+
+    .workContent {
+        height: auto;
     }
 
     .aboutContent, .workContent, .gitGrid {
-        overflow: visible;
-        position: relative;
+        /* overflow: visible; */
+        /* position: relative; */
     }
 
     /* .smaller {
@@ -496,11 +522,39 @@ ul li {
 
     .gitDesc {
         grid-column: 2;
-        font-size: 4;
+        font-size: 15px;
     }
 
+
     /* .footer {
-        grid-row-start: 3;
-        grid-row-end: 4; 
+        grid-area: f;
+        display: block;
+        height: 50px;
+        position: relative;
     } */
+    
+    .myFoot {
+        /* padding: 0; */
+        display: block;
+        /* gap: 20%; */
+
+        position: absolute;
+        margin: 0 auto;
+        width: 100%;
+        /* text-align: center;
+        grid-template-columns: repeat(5, 5%);
+        grid-template-areas: 
+        "en fr es ru nl"; */
+    }
+
+    .smaller {
+        font-size: 12px !important;
+        display: block;
+        float: left;
+    }
+
+
+    .hi:before, .hi:after {
+        display: none;
+    }
 }

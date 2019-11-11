@@ -1,30 +1,53 @@
 
-.flips-grid {
-    /* height: 100%; */
-    display: grid;
+/* .flips-grid {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    /* display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
     "me"
     "me2"
-    "bb";
-    row-gap: 2%;
+    "bb"; */
+    /* row-gap: ; */
     
+/*} */
+
+
+.aboutPlusImages {
+    /* display: flex; */
+    width: 100%;
+    position: relative;
+}
+
+.aboutImages {
+    flex: 1;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 30%;
 }
 
 #megrid {
-    grid-area: me;  
+    top: 0; 
+    z-index: 2;
 }
 
 #bbgrid {
-    grid-area: bb;
+    bottom: 100px; 
+    z-index: 2;
+
 }
 
 #me2grid {
-    grid-area: me2;
+    bottom: calc(50% - 150px); 
+    left: 184px;
+    z-index: 1;
 }
 
 .flip-grid {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, auto);
@@ -39,21 +62,16 @@
 	} */
 
 .flip-container, .front, .back {
-	width: 85.2px;
-    height: 96.6px;
-    font-size: 0;
+	width: 123.75px;
+    height: 144.75px;
 }
 
 
-/* Image dimensions: 495 x 579 -> 165 x 193  */
+/* Image dimensions: 495 x 579 -> 165 x 193 -> 96.6 x 85.2 */
 .flipper .back img {
     display: block; 
-    height: 96.6px; /* THE SAME AS THE ONES ABOVE!! */
-    width: 85.2px;
-    /* max-height: 100%; */
-    /* max-width: 100%; */
-    margin: 0;
-    /* float:left; */
+    height: 100%; /* THE SAME AS THE ONES ABOVE!! */
+    width: 100%;
 }
 
 /* flip speed goes here */
@@ -84,4 +102,24 @@
 .back {
     transform: rotateY(180deg);
     background-color: aquamarine;
+}
+
+@media (max-width: 600px) { /*------------------------------------------------------------------------------------*/
+    #me2grid {
+        bottom: calc(50% - 70px); 
+        left: 0;
+    }
+
+    .aboutImages {
+        width: 100%;
+        margin: 0;
+        left: 5%;
+    }
+
+    .flip-container, .front, .back {
+        width: 80px;
+        height: 101px;
+        opacity: 0.4;
+    }
+
 }
