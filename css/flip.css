@@ -119,12 +119,12 @@
     .flip-container, .front, .back {
         width: 80px;
         height: 101px;
-        opacity: 0.4;
+        opacity: 0.5;
     }
 
     .flipper .back img {
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-        filter: grayscale(100%);
+        /* -webkit-filter: grayscale(100%); 
+        filter: grayscale(100%); */
     }
 
 }
