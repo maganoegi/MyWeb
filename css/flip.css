@@ -24,9 +24,8 @@
 .aboutImages {
     flex: 1;
     display: inline-block;
-    position: absolute;
-    height: 100%;
-    width: 30%;
+    /* height: 100%; */
+    /* width: 30%; */
 }
 
 #megrid {
@@ -84,6 +83,7 @@
 
 /* hide back of pane during swap */
 .front, .back {
+    -webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 
 	position: absolute;
@@ -114,6 +114,8 @@
         width: 100%;
         margin: 0;
         left: 5%;
+        position: static;
+        display: inline-block;
     }
 
     .flip-container, .front, .back {

@@ -33,6 +33,8 @@ jQuery.fn.loadRepositories = function(username) {
         list += '</div>';
         target.empty().append(list);
     });
+    $(".workContent").css("height", "100%");
+
 
     // UNCOMMENT FOR TESTING PURPOSES!! Limited amount of queries GitHub
 

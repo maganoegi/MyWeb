@@ -260,11 +260,8 @@ ul li {
 }
 
 .workContent {
-    /* margin-top: 20px; */
-    /* visibility: hidden; */
     width: 100%;
     height: 100%;
-    /* background-color: aqua; */
     position: relative;
 }
 
@@ -380,11 +377,27 @@ ul li {
 
     body {
         width: calc(100vw - 10px); 
+        /* background-color: gray; */
 
     }
 
+    #container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 20% auto 70px;
+        grid-template-columns: auto minmax(20%, 80%) auto;
+        grid-template-areas: 
+        ". h ."
+        "s c ."
+        ". f .";
+    }
+
     .content {
-        overflow: visible;
+        /* overflow: visible; */
+        /* height: fit-content; */
+        /* background-color: bisque; */
+        height: 100%;
         /* height: fit-content; */
     }
 
@@ -395,33 +408,33 @@ ul li {
     }
 
     #myNav {
+        /* background-color: blue; */
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
         align-items: center;
-        transform: translateY(-80%) !important;
-        /* width: 100%; */
         flex-direction: column;
+        justify-content: center;
 
+        top: 25%;
+        transform: translateY(0);
     }
 
     #myNav li .snakebtn {
-        width: 80% !important;
+        width: auto !important;
         padding: 10px !important;
         margin: 0;
     }
 
     #myNav li {
-        display: flex;
-        width: 70%;
+        /* background-color: red; */
+        /* align-items: center; */
+        /* flex: 1; */
+        width: 60%;
         padding: 10px 0;
     }
-
-    .about, .work, .contact {
-        flex: 1;
-    }
-
-    /* #container {
-        grid-template-rows: 20% auto 20%;
-    } */
 
     .line {
         height: 60%;
@@ -476,27 +489,17 @@ ul li {
     }
 
     .workContent {
-        height: auto;
+        /* position: absolute; */
+        /* background-color: antiquewhite; */
+        margin-bottom: 50px;
+        min-height: 100% !important;
     }
 
-    .aboutContent, .workContent, .gitGrid {
-        /* overflow: visible; */
-        /* position: relative; */
-    }
-
-    /* .smaller {
-        display: flex;
-        padding-top: 6px !important;
-    } */
-
-    /* ul li .en {
-        font-size: 40px;
-    } */
 
     .gitGrid {
         grid-template-columns: repeat(auto-fill, 95%);
         gap: 20px;
-
+        position: relative;
     }
 
     .gitwrapper {
@@ -509,9 +512,6 @@ ul li {
         height: 100px;
     }
 
-    .gitwrapper, .gitImg, .gitDesc {
-    
-    }
 
     .gitImg {
         left: 0;
@@ -528,43 +528,57 @@ ul li {
     .GenDescContent {
         font-size: 15px;
     }
-
-    .sectionContent .GenDescContent ul li {
-        /* list-style: disc;
-        list-style-position: inside; */
+    
+    .footer {
+        /* justify-self: center; */
+        position: inherit;
+        /* display: block; */
+        /* background-color: yellow; */
+        /* bottom: 0 !important; */
     }
 
-
-
-    /* .footer {
-        grid-area: f;
-        display: block;
-        height: 50px;
-        position: relative;
-    } */
-    
     .myFoot {
         /* padding: 0; */
-        display: block;
+        /* display: block; */
         /* gap: 20%; */
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        /* background-color: blueviolet; */
+        width: auto;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
 
-        position: absolute;
-        margin: 0 auto;
-        width: 100%;
-        /* text-align: center;
-        grid-template-columns: repeat(5, 5%);
+        text-align: center;
+        
+        /*grid-template-columns: repeat(5, 5%);
         grid-template-areas: 
         "en fr es ru nl"; */
     }
 
+
     .smaller {
         font-size: 12px !important;
-        display: block;
-        float: left;
     }
 
+    .ru {
+        /* background-color: aqua !important; */
+        /* margin: 0 10% !important; */
+        /* margin-left: 5% !important; */
+        /* margin-right: 5% !important; */
+    }
 
     .hi:before, .hi:after {
         display: none;
+    }
+
+    .ProgLanguageGrid {
+        margin-left: 7%;
     }
 }
