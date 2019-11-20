@@ -27,12 +27,15 @@
         "about": {
             "nav": "à propos",
             "title": "A propos de moi",
-            "content": "Le même content mais en francais"
+            "content": "Je m'appelle Sergey Platonov, et je suis un étudiant en Génie IT. Je me spécialise dans logiciel et systèmes complexes. Je suis né à Moscou, Russie, et j'ai grandi aux Pays-Bas, pas loin de Rotterdam. À l'âge de 17 ans, j'ai déménagé en Suisse, afin de continuer mon parcours académique.\n\nAyant tenté de survivre au tri à la faculté de médecine à l'université de Genève et échoué, je me suis tourné vers le génie mécanique à l'EPFL, cherchant à rester dans le domaine des sciences appliquées. À l'EPFL j'ai découvert que j'adore la programmation et le raisonnement algorithmique, ce qui m'a poussé à encore changer de faculté. Ceci fut une décision que je ne regretterai jamais, car je me suis jamais senti aussi passionné auparavant. Chaque jour est devenu une possibilité d'apprentissage, réflexion et défi de devenir une meilleure version de moi-même.\n\nJe ne suis pas passionné par la programmation en soi, mais plutôt par le potentiel qu'elle détient dans des applications diverses, visées à améliorer le monde dans lequel nous habitons. C'est un outil versatile et puissant. Suite à l'obtention de mon diplôme de Bachelor, j'envisage de faire le Master en Neurosciences computationnelles à l'EPFZ, ce qui, dans ma vision du monde, représenterait mon parcours académique et mes intérêts personnels.\n\nAfin de financer mes études, j'ai travaillé les 4 dernières années dans la restauration. J'ai appris, grâce à cette expérience, à travailler, résoudre des problèmes de manière efficace, dans des équipes très diversifiées et (souvent) sous pression immense. Ceci a contribué à ma maturité personnelle. Maintenant je me sens de plus en plus sûr de mes capacités techniques pour pouvoir me plonger dans le monde de travail IT, afin de croître comme ingénieur."
         },
         "work": {
             "nav": "projets",
             "title": "Mes Projets",
-            "content": "..."
+            "GenDescTitle": "Que fais-je?",
+            "GenDescContent": "My versatile university curriculum and projects aside, I am working on a number of projects that interest me personally and give me a better understanding of the current market and technological developments. These endeavors include:\n\n &#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;several applications of genetical algorithms towards real-life problems\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speech recognizer (à la Siri) in order to understand the tech behind\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;full-stack web development for a startup\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an attempt to get my own startup off the ground\n\nBelow you will find a number of repositories that I am allowed to publicly display.",
+            "WhatDoIKnow": "What do I know?",
+            "OpenSource": "My \"public\" projects"
         },
         "contact": {
             "nav": "contact",
@@ -48,12 +51,8 @@
             "title": "asd",
             "content": ""
         },
-        "work": {
-            
-        },
-        "contact": {
-            
-        }
+        "work": {},
+        "contact": {}
     },
     "ru": {
         "name": "сергей платонов",
@@ -63,12 +62,8 @@
             "title": "sad",
             "content": ""
         },
-        "work": {
-            
-        },
-        "contact": {
-            
-        }
+        "work": {},
+        "contact": {}
     },
     "nl": {
         "name": "sergey platonov",
@@ -78,11 +73,7 @@
             "title": "asd",
             "content": ""
         },
-        "work": {
-            
-        },
-        "contact": {
-            
-        }  
+        "work": {},
+        "contact": {}
     }
 }
