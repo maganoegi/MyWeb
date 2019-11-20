@@ -482,14 +482,16 @@ ul li {
 
 
     .sectionContent {
+        /* background-color: yellow; */
+
         overflow: visible;
         position: relative;
-        /* height: 100%; */
+        height: auto;
     }
 
     .workContent {
-        /* position: absolute; */
         /* background-color: antiquewhite; */
+        /* height: auto; */
         margin-bottom: 50px;
         min-height: 100% !important;
     }
