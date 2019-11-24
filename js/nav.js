@@ -8,6 +8,8 @@
 // ---------------------------------------------------------
 
 
+let four_span = "<span></span><span></span><span></span><span></span>";
+
 function elementVisibility(element, expression) {
     let speed = 50;
     if(expression) {
@@ -82,9 +84,9 @@ function moveLine(direction) {
     }
 }
 
-// TODO: back button not translated when language changed mid-section
 function updateContentFromFile(lang, section) {
     $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
+        $(".backbtn").html(data[lang]["back"] + four_span);
         switch(section) {
             case "about":
                 $(".sectionTitle").text(data[lang][section]["title"]);
@@ -124,7 +126,6 @@ function showActiveLanguage(target) {
 }
 
 function updateNavLanguage(lang) {
-    var four_span = "<span></span><span></span><span></span><span></span>";
     $.ajax({url: "../resources/international.json", dataType: "json", success: function(data){
         $("div.about").html(data[lang]["about"]["nav"] + four_span);
         $("div.work").html(data[lang]["work"]["nav"] + four_span);
