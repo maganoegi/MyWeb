@@ -162,16 +162,16 @@ $(document).ready(function(){
     //     typeSpeed: 1000,
     //   });
     
-    var speed = 1000;
-    setInterval(function(){ 
-        // TODO: Fix bug: make sure the random values are not repeated, and when fixed, that the browsers don't freeze
-        new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length); 
-        var element = $(".ProgLanguageGrid > div")[new_rdm]
-            $(element).css("opacity", "1");
-        setTimeout(function() {
-            $(element).css("opacity", "0.2");
-        }, speed);
-    }, speed);
+    // var speed = 1000;
+    // setInterval(function(){ 
+    //     // TODO: Fix bug: make sure the random values are not repeated, and when fixed, that the browsers don't freeze
+    //     new_rdm = Math.floor(Math.random() * $(".ProgLanguageGrid > div").length); 
+    //     var element = $(".ProgLanguageGrid > div")[new_rdm]
+    //         $(element).css("opacity", "1");
+    //     setTimeout(function() {
+    //         $(element).css("opacity", "0.2");
+    //     }, speed);
+    // }, speed);
 
     // ---------------------------------------------------------
     // ----------------------- Language Handler ----------------

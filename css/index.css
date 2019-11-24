@@ -335,6 +335,7 @@ ul li {
     gap: 5px;
 }
 
+
 .progLang {
     text-align: center;
     vertical-align: middle;
@@ -343,13 +344,10 @@ ul li {
     width: 100px;
     height: 25px;
     /* border: 2px solid black; */
-}
-
-.web, .general, .other {
-    opacity: 0.2;
     border-radius: 8px;
     transition: 0.5s;
 }
+
 
 .web {
     background-color: rgba(6, 154, 190, 0.2);
