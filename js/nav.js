@@ -9,6 +9,10 @@
 
 
 let four_span = "<span></span><span></span><span></span><span></span>";
+//TODO: rewrite this dynamically
+let Picturelements = ["#me1", "#me2", "#me3", "#me4", "#me5", "#me6", "#me7", "#me8", "#me9",
+    "#me21", "#me22", "#me23", "#me24", "#me25", "#me26", "#me27", "#me28", "#me29",
+    "#bb1", "#bb2", "#bb3", "#bb4", "#bb5", "#bb6", "#bb7", "#bb8", "#bb9"];
 
 function elementVisibility(element, expression) {
     let speed = 50;
@@ -144,6 +148,32 @@ function getScrollPercentage() {
     return ((h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
 }
 
+// Animation picture when about opened
+function AnimateFirstPicture() {
+    // TODO: Dynamic i limit
+    // TODO: Delay between parts of the image
+    for(var i = 0; i < 9; i++) {
+        var element = $(Picturelements[i]).children("div.flipper");
+        if(!element.hasClass("visible")) {
+            flip(element);
+        }
+    }
+}
+
+function flip(element) {
+    element.addClass("visible");
+    element.css({
+        transform: "rotateY(180deg)"
+    });
+}
+
+function backflip(element) {
+    element.removeClass("visible");
+    element.css({
+        transform: "rotateY(0deg)"
+    });
+}
+
 
 // ---------------------------------------------------------
 // ----------------------- Main ----------------------------
@@ -272,6 +302,9 @@ $(document).ready(function(){
             elementVisibility(".sectionContent", true);
             
             elementVisibility(".aboutContent", true);
+
+            AnimateFirstPicture() 
+
             
         });
     });
@@ -298,14 +331,14 @@ $(document).ready(function(){
         elementVisibility(".workContent", false); 
     });
 
+    
+
 
     $(window).scroll(function(event) {
 
         currentPos = getScrollPercentage();
         currentRelative = Math.round(getScrollPercentage() / 3.6);
-        var elements = ["#me1", "#me2", "#me3", "#me4", "#me5", "#me6", "#me7", "#me8", "#me9",
-                        "#me21", "#me22", "#me23", "#me24", "#me25", "#me26", "#me27", "#me28", "#me29",
-                        "#bb1", "#bb2", "#bb3", "#bb4", "#bb5", "#bb6", "#bb7", "#bb8", "#bb9"];
+
         var lower = 0;
         var higher = 0;
 
@@ -321,20 +354,14 @@ $(document).ready(function(){
         }
 
         for(i = 0; i < 27; i++) {
-            var element = $(elements[i]).children("div.flipper");
+            var element = $(Picturelements[i]).children("div.flipper");
             if(i >= lower && i <= higher) {
                 if(!element.hasClass("visible")) {
-                    element.addClass("visible");
-                    element.css({
-                        transform: "rotateY(180deg)"
-                    });
+                    flip(element);
                 }
             } else {
                 if(element.hasClass("visible")) {
-                    element.removeClass("visible");
-                    element.css({
-                        transform: "rotateY(0deg)"
-                    });
+                    backflip(element);
                 }
             }
     
