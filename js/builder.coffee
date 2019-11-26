@@ -1,47 +1,30 @@
 styles = """
 
-* {
-  transition: 0.5s;
+
+*:not(.line, .line span) {
+    transition: 0.5s;
 }
 
-pre { 
-  z-index: -1;
-  position: absolute; width: 100%;
-  top: 1px; bottom: 1px;
-  overflow: hidden;
-  background-color: #313744; color: black;
-}
 
-pre em:not(.comment) { font-style: normal; }
-
-.comment       { color: #707e84; }
-.selector      { color: #c66c75; }
-.selector .key { color: #c66c75; }
-.key           { color: #c7ccd4; }
-.value         { color: #d5927b; }
-
-html {
+html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
+
 
 body {
-  z-index: 1;
-  height: 100%;
-  margin: 0;
-  width: 100%;
-  border: 0;
-  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-  /* font-family: 'Ubuntu', sans-serif; */
-  font-family: 'Mukta', sans-serif;
-  overflow: auto;
+    border: 0;
+    width: calc(100vw - 34px); 
+    font-family: 'Mukta', sans-serif;
 }
 
 #container {
-    z-index: 2;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 20% 70% 10%;
+    grid-template-rows: 20% auto 70px;
     grid-template-columns: auto minmax(20%, 80%) auto;
     grid-template-areas: 
     ". h ."
@@ -53,47 +36,52 @@ body {
     grid-area: h;
     position: relative;
     width: 100%;
-    /* background-color: aquamarine; */
     text-align: center;
 }
 
 .content {
     grid-area: c;
-    /* background-color: blanchedalmond; */
     justify-items: center;
 }
 
 #myNav {
+    height: 50%;
+    top: 25%;
+    margin: 0;
+    position: relative;
+    height: 90px;
+    transform: translateY(50%);
     padding: 0;
-    justify-content: center;
-    width: auto;
-    transform: translateY(400%);
-    display: flex;
+    margin: 0 auto;
+    text-align: center;
 } 
 
 ul li {
-    list-style: none;
+    display: inline-block;
 }
 
 .footer {
     grid-area: f;
-    display: fixed;
+    display: block;
+    height: 50px;
     position: relative;
-    /* background-color: aquamarine; */
 }
 
 
 .myFoot {
     padding: 0;
-    margin: 0;
-    justify-items: center;
-    position: absolute;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto;
-    width: 100%;
+    gap: 10%;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    grid-template-columns: repeat(5, 12%);
     grid-template-areas: 
-    ". en fr sp ru nl .";
+    "en fr es ru nl";
+}
+
+.myFoot ul li {
+    margin: 0 auto;
 }
 
 .smaller {
@@ -109,8 +97,8 @@ ul li {
     grid-area: fr;
 }
 
-.sp {
-    grid-area: sp;
+.es {
+    grid-area: es;
 }
 
 .ru {
@@ -123,8 +111,9 @@ ul li {
 
 .line {
     position: absolute;
-    height: 60%;
+    height: 70%;
     width: 30%;
+    left: 8%;
 }
 
 .segment {
@@ -138,7 +127,6 @@ ul li {
 }
 
 .s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8 {
-    /* margin-left: 20%; */
     opacity: 0;
 }
 
@@ -181,60 +169,340 @@ ul li {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* Android */
     -webkit-tap-highlight-color: transparent;
-}
-
-.contentGrid {
-    position: absolute;
-    visibility: hidden;
-    display: grid;
-    width: 80vw;
-    height: 65vh;
-    grid-template-columns: 100%;
-    grid-template-rows: 90px 10% 80%;
 }
 
 .backbtn {
     grid-row: 1;
     display: block;
     position: absolute !important;
-    margin-top: -5px !important;
+    margin-top: 4px !important;
     margin-left: 15px !important;
     opacity: 0;
     cursor: pointer;
     transition: 0.5s;
-    visibility: hidden;
-    padding: 5px !important;
+    padding: 10px !important;
 }
 
 .sectionTitle {
-    background-color: tomato;
+    float: right;
+    display: block;
+    transition: 0.5s;
     grid-row: 2;
-    font-size: 30px;
-    margin-left: 15px;
+    font-size: 40px;
+    font-weight: 800;
 }
 
 .sectionContent {
-    overflow: auto;
-    grid-row: 3;
     transition: 0.5s;
+    grid-row: 3;
     display: inline-block;
-    position: absolute;
-    background-color: aqua;
-    height: 100%;
+    height: max-content;
     width: 100%;
     margin-left: 15px;
 }
 
+.aboutContent {
+    transition: 0.5s;
+    margin-top: 10px;
+    font-size: 22px;
+    overflow: visible;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 50px;
+    height: 100%;
+    width: 50%;
+    margin-left: 15px;
+}
+
+.aboutImages {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    margin-left: 50px;
+}
+
+.workContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gitGrid {
+    position: relative;
+    display: grid;
+    overflow: visible;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.gitwrapper {
+    height: 200px;
+    position: relative;
+    left: 20%;
+    display: block;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.gitImg {
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: calc(50% - 100px);
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.gitDesc {
+    text-align: center;
+    display: block;
+    position: absolute; 
+    height: 70px;
+    width: 100%;
+    bottom: calc(50% - 35px);
+    z-index: 2;
+    font-size: 21px;
+    font-weight: bold;
+    transform: 0.5s;
+}
+
+.gitwrapper:hover {
+    border: 2px solid black;
+    background-color: rgb(52, 53, 54);
+    color: antiquewhite;
+}
+
+.GenDescContent {
+    font-size: 20px;
+}
 
 
+.title {
+    font-size: 30px;
+    position: relative;
+    margin: 20px 0;
+}
+
+
+.ProgLanguageGrid {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    gap: 5px;
+}
+
+
+.progLang {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    line-height: 25px; 
+    width: 100px;
+    height: 25px;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+
+.web {
+    background-color: rgba(6, 154, 190, 0.2);
+    border: 2px solid rgba(6, 154, 190, 0.2);
+
+}
+
+.general {
+    background-color: rgba(75, 57, 57, 0.2);
+    border: 2px solid rgba(75, 57, 57, 0.2)
+}
+
+.other {
+    background-color: rgba(165, 165, 9, 0.2);
+    border: 2px solid rgba(165, 165, 9, 0.2);
+}
+
+
+
+@media (max-width: 800px) { /*------------------------------------------------------------------------------------*/
+
+    .ProgLanguageGrid {
+        width: 100%;
+    }
+
+    body {
+        width: calc(100vw - 10px); 
+
+    }
+
+    #container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 20% auto 70px;
+        grid-template-columns: auto minmax(20%, 80%) auto;
+        grid-template-areas: 
+        ". h ."
+        "s c ."
+        ". f .";
+    }
+
+    .content {
+        height: 100%;
+    }
+
+    .hi {
+        font-size: 30px !important;
+        line-height: 25px !important;
+        transform: translateY(100%) !important;
+    }
+
+    #myNav {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        top: 25%;
+        transform: translateY(0);
+    }
+
+    #myNav li .snakebtn {
+        width: auto !important;
+        padding: 10px !important;
+        margin: 0;
+    }
+
+    #myNav li {
+        width: 60%;
+        padding: 10px 0;
+    }
+
+    .line {
+        height: 60%;
+    }
+
+    ul li .backbtn {
+        position: relative;
+        font-size: 20px !important;
+        width: 50px !important;
+        padding: 2px !important;
+        z-index: 10;
+
+    }
+
+    .sectionTitle {
+        font-size: 30px;
+    }
+
+    .aboutContent {
+        position: relative;
+        z-index: 1;
+
+        height: 100%;
+        margin: 10px 0;
+        word-wrap: normal;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .aboutImages {
+        display: block;
+        position: absolute;
+        float: left;
+        left: 0;
+        z-index: -1;
+    }
+
+
+    .sectionContent {
+        overflow: visible;
+        position: relative;
+        height: auto;
+    }
+
+    .workContent {
+        margin-bottom: 50px;
+        min-height: 100% !important;
+    }
+
+
+    .gitGrid {
+        grid-template-columns: repeat(auto-fill, 95%);
+        gap: 20px;
+        position: relative;
+    }
+
+    .gitwrapper {
+        display: grid;
+        grid-template-columns: 100px auto;
+        grid-template-rows: 100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+    }
+
+
+    .gitImg {
+        left: 0;
+        grid-column: 1;
+        height: 100px;
+        width: 100px;
+    }
+
+    .gitDesc {
+        grid-column: 2;
+        font-size: 15px;
+    }
+
+    .GenDescContent {
+        font-size: 15px;
+    }
+    
+    .footer {
+        position: inherit;
+    }
+
+    .myFoot {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .smaller {
+        font-size: 12px !important;
+    }
+
+
+    .hi:before, .hi:after {
+        display: none;
+    }
+
+    .ProgLanguageGrid {
+        margin-left: 7%;
+    }
+}
 .hi {
     font-family: 'Poppins', sans-serif;
     align-self: center;
     align-content: center;
-    /* margin-top: 10%; */
-    /* top: 10%; */
     transform: translateY(200%);
     font-size: 60px;
     display: inline-block;
@@ -295,26 +563,115 @@ ul li {
     transform-origin: right
 }
 
+.aboutPlusImages {
+    /* display: flex; */
+    width: 100%;
+    position: relative;
+}
 
-/* README
------------------ Source -------------------
-https://www.youtube.com/watch?v=Vm_te-D25D4
+.aboutImages {
+    flex: 1;
+    display: inline-block;
+    /* height: 100%; */
+    /* width: 30%; */
+}
 
-------------- USED HTML MARKUP -------------
-<ul>
-    <li>
-        <div class="snakebtn">Test
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul> */
+#megrid {
+    top: 0; 
+    z-index: 2;
+}
 
+#bbgrid {
+    bottom: 100px; 
+    z-index: 2;
+
+}
+
+#me2grid {
+    bottom: calc(50% - 150px); 
+    left: 184px;
+    z-index: 1;
+}
+
+.flip-grid {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+}
+
+.flip-container {
+    perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	/* .flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	} */
+
+.flip-container, .front, .back {
+	width: 123.75px;
+    height: 144.75px;
+}
+
+
+/* Image dimensions: 495 x 579 -> 165 x 193 -> 96.6 x 85.2 */
+.flipper .back img {
+    display: block; 
+    height: 100%; /* THE SAME AS THE ONES ABOVE!! */
+    width: 100%;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.7s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    -webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+    background-color: aquamarine;
+}
+
+@media (max-width: 800px) { /*------------------------------------------------------------------------------------*/
+    #me2grid {
+        bottom: calc(50% - 70px); 
+        left: 0;
+    }
+
+    .aboutImages {
+        width: 100%;
+        margin: 0;
+        left: 5%;
+        position: static;
+        display: inline-block;
+    }
+
+    .flip-container, .front, .back {
+        width: 80px;
+        height: 101px;
+        opacity: 0.5;
+    }
+}
 
 /*-------------------------------*/
 /* BIGGER BUTTONS - NAVIGATION    */
@@ -415,15 +772,16 @@ ul li .snakebtn:hover span:nth-child(4) {
 /* SMALLER BUTTONS - LANGUAGES   */
 /*-------------------------------*/
 .smaller {
+    /* Allows for text to always fit inside */
+    padding: 20px; 
     position: relative;
-    padding: 20px; /* Allows for text to always fit inside */
     height: auto;
     font-size: 17px;
     text-align: center;
     text-decoration: none;
-    margin: 0 40px;
+    /* margin: 0 40px; */
     width: auto;
-    color: #262626;
+    color: black;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -505,294 +863,6 @@ ul li .snakebtn span:nth-child(3) {
     transition: transform 0.5s;
 }
 
-.hi {
-  padding: 12.5px;
-}
-
-.hi:before, .hi:after {
-  content: "sergey platonov";
-  position: absolute;
-  color: #000;
-  top: 13px;
-  overflow: hidden;
-}
-
-.hi:before {
-  left: 15px;
-  text-shadow: 1px 0 red;
-  -webkit-animation: glitch-before 2s linear 0s infinite alternate;
-          animation: glitch-before 2s linear 0s infinite alternate;
-}
-
-.hi:after {
-  left: 15px;
-  text-shadow: -1px 0 black;
-  animation: glitch-after 2s linear 0s infinite alternate-reverse;
-}
-
-@-webkit-keyframes glitch-before {
-  0% {
-    clip: rect(2px, 700px, 132px, 30px);
-  }
-  5% {
-    clip: rect(122px, 700px, 176px, 30px);
-  }
-  10% {
-    clip: rect(120px, 700px, 45px, 30px);
-  }
-  15% {
-    clip: rect(118px, 700px, 137px, 30px);
-  }
-  20% {
-    clip: rect(57px, 700px, 106px, 30px);
-  }
-  25% {
-    clip: rect(31px, 700px, 77px, 30px);
-  }
-  30% {
-    clip: rect(37px, 700px, 166px, 30px);
-  }
-  35% {
-    clip: rect(72px, 700px, 185px, 30px);
-  }
-  40% {
-    clip: rect(13px, 700px, 155px, 30px);
-  }
-  45% {
-    clip: rect(103px, 700px, 68px, 30px);
-  }
-  50% {
-    clip: rect(33px, 700px, 173px, 30px);
-  }
-  55% {
-    clip: rect(28px, 700px, 160px, 30px);
-  }
-  60% {
-    clip: rect(97px, 700px, 32px, 30px);
-  }
-  65% {
-    clip: rect(143px, 700px, 33px, 30px);
-  }
-  70% {
-    clip: rect(29px, 700px, 117px, 30px);
-  }
-  75% {
-    clip: rect(33px, 700px, 30px, 30px);
-  }
-  80% {
-    clip: rect(133px, 700px, 12px, 30px);
-  }
-  85% {
-    clip: rect(157px, 700px, 173px, 30px);
-  }
-  90% {
-    clip: rect(149px, 700px, 56px, 30px);
-  }
-  95% {
-    clip: rect(19px, 700px, 28px, 30px);
-  }
-  100% {
-    clip: rect(29px, 700px, 72px, 30px);
-  }
-}
-
-@keyframes glitch-before {
-  0% {
-    clip: rect(2px, 700px, 132px, 30px);
-  }
-  5% {
-    clip: rect(122px, 700px, 176px, 30px);
-  }
-  10% {
-    clip: rect(120px, 700px, 45px, 30px);
-  }
-  15% {
-    clip: rect(118px, 700px, 137px, 30px);
-  }
-  20% {
-    clip: rect(57px, 700px, 106px, 30px);
-  }
-  25% {
-    clip: rect(31px, 700px, 77px, 30px);
-  }
-  30% {
-    clip: rect(37px, 700px, 166px, 30px);
-  }
-  35% {
-    clip: rect(72px, 700px, 185px, 30px);
-  }
-  40% {
-    clip: rect(13px, 700px, 155px, 30px);
-  }
-  45% {
-    clip: rect(103px, 700px, 68px, 30px);
-  }
-  50% {
-    clip: rect(33px, 700px, 173px, 30px);
-  }
-  55% {
-    clip: rect(28px, 700px, 160px, 30px);
-  }
-  60% {
-    clip: rect(97px, 700px, 32px, 30px);
-  }
-  65% {
-    clip: rect(143px, 700px, 33px, 30px);
-  }
-  70% {
-    clip: rect(29px, 700px, 117px, 30px);
-  }
-  75% {
-    clip: rect(33px, 700px, 30px, 30px);
-  }
-  80% {
-    clip: rect(133px, 700px, 12px, 30px);
-  }
-  85% {
-    clip: rect(157px, 700px, 173px, 30px);
-  }
-  90% {
-    clip: rect(149px, 700px, 56px, 30px);
-  }
-  95% {
-    clip: rect(19px, 700px, 28px, 30px);
-  }
-  100% {
-    clip: rect(29px, 700px, 72px, 30px);
-  }
-}
-
-@-webkit-keyframes glitch-after {
-  0% {
-    clip: rect(194px, 700px, 61px, 30px);
-  }
-  5% {
-    clip: rect(59px, 700px, 67px, 30px);
-  }
-  10% {
-    clip: rect(39px, 700px, 24px, 30px);
-  }
-  15% {
-    clip: rect(108px, 700px, 83px, 30px);
-  }
-  20% {
-    clip: rect(44px, 700px, 87px, 30px);
-  }
-  25% {
-    clip: rect(61px, 700px, 79px, 30px);
-  }
-  30% {
-    clip: rect(28px, 700px, 5px, 30px);
-  }
-  35% {
-    clip: rect(165px, 700px, 47px, 30px);
-  }
-  40% {
-    clip: rect(195px, 700px, 72px, 30px);
-  }
-  45% {
-    clip: rect(6px, 700px, 138px, 30px);
-  }
-  50% {
-    clip: rect(183px, 700px, 200px, 30px);
-  }
-  55% {
-    clip: rect(11px, 700px, 83px, 30px);
-  }
-  60% {
-    clip: rect(173px, 700px, 11px, 30px);
-  }
-  65% {
-    clip: rect(152px, 700px, 151px, 30px);
-  }
-  70% {
-    clip: rect(55px, 700px, 54px, 30px);
-  }
-  75% {
-    clip: rect(127px, 700px, 187px, 30px);
-  }
-  80% {
-    clip: rect(100px, 700px, 63px, 30px);
-  }
-  85% {
-    clip: rect(75px, 700px, 104px, 30px);
-  }
-  90% {
-    clip: rect(19px, 700px, 10px, 30px);
-  }
-  95% {
-    clip: rect(23px, 700px, 68px, 30px);
-  }
-  100% {
-    clip: rect(24px, 700px, 101px, 30px);
-  }
-}
-
-@keyframes glitch-after {
-  0% {
-    clip: rect(194px, 700px, 61px, 30px);
-  }
-  5% {
-    clip: rect(59px, 700px, 67px, 30px);
-  }
-  10% {
-    clip: rect(39px, 700px, 24px, 30px);
-  }
-  15% {
-    clip: rect(108px, 700px, 83px, 30px);
-  }
-  20% {
-    clip: rect(44px, 700px, 87px, 30px);
-  }
-  25% {
-    clip: rect(61px, 700px, 79px, 30px);
-  }
-  30% {
-    clip: rect(28px, 700px, 5px, 30px);
-  }
-  35% {
-    clip: rect(165px, 700px, 47px, 30px);
-  }
-  40% {
-    clip: rect(195px, 700px, 72px, 30px);
-  }
-  45% {
-    clip: rect(6px, 700px, 138px, 30px);
-  }
-  50% {
-    clip: rect(183px, 700px, 200px, 30px);
-  }
-  55% {
-    clip: rect(11px, 700px, 83px, 30px);
-  }
-  60% {
-    clip: rect(173px, 700px, 11px, 30px);
-  }
-  65% {
-    clip: rect(152px, 700px, 151px, 30px);
-  }
-  70% {
-    clip: rect(55px, 700px, 54px, 30px);
-  }
-  75% {
-    clip: rect(127px, 700px, 187px, 30px);
-  }
-  80% {
-    clip: rect(100px, 700px, 63px, 30px);
-  }
-  85% {
-    clip: rect(75px, 700px, 104px, 30px);
-  }
-  90% {
-    clip: rect(19px, 700px, 10px, 30px);
-  }
-  95% {
-    clip: rect(23px, 700px, 68px, 30px);
-  }
-  100% {
-    clip: rect(24px, 700px, 101px, 30px);
-  }
-}
 /* Voilà */
 """
 
