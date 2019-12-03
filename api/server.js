@@ -26,6 +26,9 @@ app.use('/api/projects', projectRoute);
 /*-----------------------------------------*/
 /*-------------- Server Launcher ----------*/
 /*-----------------------------------------*/
-const port = 3000; //process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const server = http.createServer(app);
-server.listen(port);
+server.listen(port, () => {
+    var border = "========================================================================";
+    console.log("\n " + border + "\n    " + "🌎" + ' svplatonov.com/api server is running at http://localhost:' + port + "\n " + border);
+});
