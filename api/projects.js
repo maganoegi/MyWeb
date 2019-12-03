@@ -3,20 +3,23 @@
 
 
 const express = require('express');
+const dataMethods = require('./dataMethods');
+const fs = require('fs');
+
 const router = express.Router();
-const http = require('http');
-const dataServices = require('./dataservices');
 
 /*---------------------------------------------------------------------*/
 /*-------------------------- Collection management ------------------- */
 /*---------------------------------------------------------------------*/
 router.get('/', (req, res, next) => {
-    dataServices.getGitHubData().then(function(data) {
-        res.send(JSON.parse(data));
-    }).catch(function(err) {
-        // Error Handler needed
+
+    fs.readFile("./data/final.json", (err, data) => {
+        if (err) throw err;
+        var projects = JSON.parse(data);
+    
+        res.status(200).send(projects);
     });
-    res.status(200);
+
 });
 
 router.post('/', (req, res, next) => {
@@ -29,9 +32,18 @@ router.post('/', (req, res, next) => {
 /* Collection resource management ( svplatonov.com/api/projects/xxxx ) */
 /*---------------------------------------------------------------------*/
 router.get('/:xxxx', (req, res, next) => {
-    const id = req.params.xxxx;
-    res.status(200).json({
-        message: ("Reading resource " + id + " through GET request")
+    // id: 188440179 for blockchain project from github
+    var id = req.params.xxxx;
+
+    fs.readFile("./data/final.json", (err, data) => {
+        if (err) throw err;
+        var projects = JSON.parse(data);
+    
+        var project = projects.filter(function(i) {
+            return i.id == id;
+        });
+
+        res.status(200).send(project);
     });
 });
 
