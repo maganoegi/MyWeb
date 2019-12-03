@@ -22,7 +22,8 @@ jQuery.fn.loadRepositories = function(username) {
             let lang = this.language;
             let link = this.homepage?this.homepage:this.html_url;
             let imgSrc;
-            if(lang == "CSS" || lang == "Javascript" || lang == "HTML" || lang == "html") {
+            console.log(lang);
+            if(lang == "CSS" || lang == "JavaScript" || lang == "HTML" || lang == "html") {
                 imgSrc = "./resources/img/webpack.png";
             } else {
                 imgSrc = "./resources/img/" + lang + ".png"; 
