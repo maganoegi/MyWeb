@@ -1,3 +1,6 @@
+
+
+
 const fs = require('fs');
 const request = require('request');
 
@@ -5,8 +8,8 @@ const gitPath = "./data/hub.json";
 const finalPath = "./data/final.json";
 const customPath = "./data/custom.json";
 
-function FetchGit() {
-    var promise = new Promise(function(resolve, reject) {
+exports.FetchGit = function() {
+    return new Promise(function(resolve, reject) {
 
         var options = {
             uri: 'https://api.github.com/users/maganoegi/repos',
@@ -40,11 +43,10 @@ function FetchGit() {
             resolve(1);
         });
     });
-    return promise;
 }
 
-function filesDoExist() {
-    var promise = new Promise(function(resolve, reject) {
+exports.filesDoExist = function() {
+    return new Promise(function(resolve, reject) {
         fs.exists(gitPath, function(exists) {
             if(!exists) {
                 FetchGit();
@@ -57,12 +59,11 @@ function filesDoExist() {
             });
         });
     });
-    return promise;
 }
 
 
-function Merge() {
-    var promise = new Promise(function(resolve, reject) {
+exports.Merge = function() {
+    return new Promise(function(resolve, reject) {
 
         fs.readFile(gitPath, (err, GIT_data) => {
             if (err) throw err;
@@ -79,11 +80,10 @@ function Merge() {
             });
         });
     });
-    return promise;
 }
 
-function Add_2_Custom(source, id, name, url, description, language) {
-    var promise = new Promise(function(resolve, reject) {
+exports.Add_2_Custom = function(source, id, name, url, description, language) {
+    return new Promise(function(resolve, reject) {
         if (!fs.existsSync(customPath)) { 
             fs.writeFileSync(customPath, "[]");
         } 
@@ -101,12 +101,30 @@ function Add_2_Custom(source, id, name, url, description, language) {
         var FileAsJson = JSON.stringify(FileAsArray);
         fs.writeFileSync(customPath, FileAsJson);
     });
-    return promise;
 }
 
-Add_2_Custom("source", "id", "name", "url", "description", "language");
+exports.GetData = function(id) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile("./data/final.json", (err, data) => {
+            if (err) throw err;
+            var output = JSON.parse(data);
+            
+            if(id) {
+                var project = output.filter(function(i) {
+                    return i.id == id;
+                });
+                output = project;
+            }
 
-exports.filesDoExist = filesDoExist;
-exports.FetchGit = FetchGit;
-exports.Add_2_Custom = Add_2_Custom;
-exports.Merge = Merge;
+            resolve(output);
+
+        });
+    });
+}
+
+// Add_2_Custom("source", "id", "name", "url", "description", "language");
+
+// exports.filesDoExist = filesDoExist;
+// exports.FetchGit = FetchGit;
+// exports.Add_2_Custom = Add_2_Custom;
+// exports.Merge = Merge;

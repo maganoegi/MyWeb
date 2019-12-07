@@ -13,13 +13,7 @@ const router = express.Router();
 /*---------------------------------------------------------------------*/
 router.get('/', (req, res, next) => {
 
-    fs.readFile("./data/final.json", (err, data) => {
-        if (err) throw err;
-        var projects = JSON.parse(data);
-    
-        res.status(200).send(projects);
-    });
-
+    dataMethods.GetData().then(data => res.status(200).send(data));
 });
 
 router.post('/', (req, res, next) => {
@@ -34,17 +28,7 @@ router.post('/', (req, res, next) => {
 router.get('/:xxxx', (req, res, next) => {
     // id: 188440179 for blockchain project from github
     var id = req.params.xxxx;
-
-    fs.readFile("./data/final.json", (err, data) => {
-        if (err) throw err;
-        var projects = JSON.parse(data);
-    
-        var project = projects.filter(function(i) {
-            return i.id == id;
-        });
-
-        res.status(200).send(project);
-    });
+    dataMethods.GetData(id).then(data => res.status(200).send(data));
 });
 
 router.patch('/:xxxx', (req, res, next) => {
