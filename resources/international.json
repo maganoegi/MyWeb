@@ -47,12 +47,23 @@
         "name": "sergey platonov",
         "back": "regresar",
         "about": {
-            "nav": "",
+            "nav": "acerca de mi",
             "title": "asd",
-            "content": ""
+            "content": "Mi nombre es Sergey Platonov, soy estudiante en Ingeniería en Tecnologías de la Información especializado en sistemas complejos. Nací en Moscú, Rusia y crecí cerca de Rotterdam en los Países Bajos. Después de cumplir los 17 anos me mude a Suiza a continuar con mis estudios superiores.\n\nDespués de probar mi suerte en la Facultad de Medicina en Ginebra y no ser elegido, decidí seguir mi interés por las ciencias aplicadas y pasé los siguientes 2 años en la EPFL (Escuela Politécnica de Lausana, Suiza) estudiando ingeniería mecánica. Una vez ahí, descubrí que me encanta la programación y el razonamiento algorítmico así que cambié de facultad una vez mas. Esta fue una decisión de la cual jamás me arrepentiré, ya que nunca me he sentido tan bien respecto a algo. Disfruto aprender y emprender grandes retos para convertirme en una persona mas preparada e inteligente.\n\nNo veo la programación como mi pasión, si no mas bien como una herramienta que me permitirá tener mejores resultados y resolver problemas complejos en cualquier campo.\n\nEs un mundo muy grande, lleno de nuevos descubrimientos y en constante evolución para nosotros como seres humanos. Una vez que termine mi Licenciatura estoy planeando hacer la maestría de Neurociencias computacionales en la ETH Zúrich, la cual combina la mayoría de mis intereses y mis pasadas experiencias académicas.\n\nLos últimos 4 años, en paralelo a mis estudios, he estado trabajando en un restaurante para financiar estos mismos.\n\nEsta experiencia me enseño a resolver problemas eficientemente, en equipo y rodeado de gente de todo el mundo y de todos los campos, así como a trabajar bajo presión.\n\nGracias a esto he crecido enormemente como persona y me siento seguro de mi mismo en cuanto a mis habilidades tanto humanas como tecnológicas. Estoy listo para entrar al mundo de la tecnología de la información y continuar creciendo como ingeniero."
         },
-        "work": {},
-        "contact": {}
+        "work": {
+            "nav": "proyectos",
+            "title": "Mis Proyectos",
+            "GenDescTitle": "Que hago?",
+            "GenDescContent": "My versatile university curriculum and projects aside, I am working on a number of projects that interest me personally and give me a better understanding of the current market and technological developments. These endeavors include:\n\n &#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;several applications of genetical algorithms towards real-life problems\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speech recognizer (à la Siri) in order to understand the tech behind\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;full-stack web development for a startup\n&#x26AB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an attempt to get my own startup off the ground\n\nBelow you will find a number of repositories that I am allowed to publicly display.",
+            "WhatDoIKnow": "Que conozco?",
+            "OpenSource": "Mis proyectos publicos"
+        },
+        "contact": {
+            "nav": "contacto",
+            "title": "Contactenme!",
+            "content": "..."
+        }
     },
     "ru": {
         "name": "сергей платонов",
