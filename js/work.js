@@ -9,7 +9,7 @@ jQuery.githubUser = function(username, callback) {
 }
   
 jQuery.fn.loadRepositories = function(username) {
-    this.html("<span>Querying GitHub for " + username +"'s repositories...</span>");
+    // this.html("<span>Querying GitHub for " + username +"'s repositories...</span>");
     
     var target = this;
     $.githubUser(username, function(data) {
@@ -22,7 +22,6 @@ jQuery.fn.loadRepositories = function(username) {
             let lang = this.language;
             let link = this.homepage?this.homepage:this.html_url;
             let imgSrc;
-            console.log(lang);
             if(lang == "CSS" || lang == "JavaScript" || lang == "HTML" || lang == "html") {
                 imgSrc = "./resources/img/webpack.png";
             } else {
@@ -34,7 +33,7 @@ jQuery.fn.loadRepositories = function(username) {
         list += '</div>';
         target.empty().append(list);
     });
-    $(".workContent").css("height", "100%");
+    // $(".workContent").css("height", "100%");
 
 
     // UNCOMMENT FOR TESTING PURPOSES!! Limited amount of queries GitHub
