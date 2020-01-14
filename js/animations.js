@@ -1,5 +1,3 @@
-// https://css-tricks.com/slide-in-as-you-scroll-down-boxes/
-// https://davidwalsh.name/css-flip
 
 
 // ---------------------------------------------------------
@@ -30,6 +28,7 @@ function elementVisibility(element, expression) {
     }
 }
 
+// Move the name up or down
 function moveHi(direction) {
     if($(window).width() > 600) {
         if(direction == "up") {

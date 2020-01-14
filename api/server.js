@@ -8,7 +8,6 @@
 /*-----------------------------------------*/
 const http = require('http');
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 
 
@@ -22,8 +21,15 @@ const projectRoute = require('./projects');
 /*---------- Express Middleware setup -----*/
 /*-----------------------------------------*/
 app.use('/api/projects', projectRoute);
-app.use(bodyParser());
-app.use(express.json()); //raw json
+app.use(express.json({
+    inflate: true,
+    limit: '100kb',
+    reviver: null,
+    strict: true,
+    type: 'application/json',
+    verify: undefined
+  }));
+  
 app.use(express.urlencoded({extended: false}));
 
 

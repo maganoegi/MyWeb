@@ -17,18 +17,20 @@ router.get('/', (req, res, next) => {
 });
 
 // Insert a new entry
-router.post('/', (req, res, next) => {
-    id = req.body.id;
-    source = req.body.source;
-    name = req.body.name;
-    url = req.body.url;
-    description = req.body.description;
-    language = req.body.description;
+router.post('/', (req, res) => {
+    const project = {
+        id: req.body.id,
+        source: req.body.source,
+        name: req.body.name,
+        url: req.body.url,
+        description: req.body.description,
+        language: req.body.language
+    };
 
-    if(!id || !source || !name || !url || !description || !language ) {
+    if(!project.id || !project.source || !project.name || !project.url || !project.description || !project.language ) {
         res.status(406).json({ message: "Please provide all data." });
     } else {
-        dataMethods.Add_2_Custom(source, id, name, url, description, language);
+        dataMethods.Add_2_Custom(project.source, project.id, project.name, project.url, project.description, project.language);
     }
 });
 

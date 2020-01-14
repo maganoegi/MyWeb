@@ -1,13 +1,13 @@
 
 
 
-
+// Fetch the Data
 jQuery.githubUser = function(username, callback) {
     jQuery.getJSON('https://api.github.com/users/'+username+'/repos?callback=?',callback)
 }
   
 jQuery.fn.loadRepositories = function(username) {
-    
+    // this is the housing div to which we append
     var target = this;
     $.githubUser(username, function(data) {
         var repos = data.data;

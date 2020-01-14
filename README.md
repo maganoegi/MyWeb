@@ -26,9 +26,11 @@ This README serves as a project report.
 
 To visualise the web-app, open _index.html_ in your browser of choice.
 
+Comments have been provided as much as is necessary - I tried to make the code speak for itself.
+
 ## 2 File Structure
 The source files are subdivided into functional parts: 
-* __index.html__
+* __index.html__ - Quite a loaded file, but normal since it's an SPA.
 * __css /__
     * __flip.css__ - describes the behaviour of the flipped images in the _about_ page
     * __hi.css__ - my name in big, surrounded by brackets
@@ -139,6 +141,8 @@ Then, the following API calls can be executed:
             => delete the project with ID xxxx in custom.json
 
 I used a software called __Postman__ to test my API.
+
+Unfortunately POST, PATCH and DELETE are bugged, and I don't understand why. The calls pass, but do not parse the JSON data correctly on the server side.
             
 ## 9 Things to improve
 A lot of work went into this website, mainly because of the design and wanting to make is complete. Im glad that the "skeleton" of the website is tested and responsive, and I shall continue working on it.
