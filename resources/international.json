@@ -69,22 +69,44 @@
         "name": "сергей платонов",
         "back": "назад",
         "about": {
-            "nav": "",
-            "title": "sad",
-            "content": ""
+            "nav": "обо мне",
+            "title": "обо мне",
+            "content": "..."
         },
-        "work": {},
-        "contact": {}
+        "work": {
+            "nav": "projecten",
+            "title": "Mijn werk",
+            "GenDescTitle": "Wat doe ik?",
+            "GenDescContent": "...",
+            "WhatDoIKnow": "Wat ken ik?",
+            "OpenSource": "Mijn publieke projecten."
+        },
+        "contact": {
+            "nav": "Contact",
+            "title": "Neem contact met me op!",
+            "content": "..."
+        }
     },
     "nl": {
         "name": "sergey platonov",
         "back": "terug",
         "about": {
-            "nav": "",
-            "title": "asd",
-            "content": ""
+            "nav": "over mij",
+            "title": "over mij",
+            "content": "ben het nu aan het scrijven! coming soon"
         },
-        "work": {},
-        "contact": {}
+        "work": {
+            "nav": "projecten",
+            "title": "Mijn werk",
+            "GenDescTitle": "Wat doe ik?",
+            "GenDescContent": "...",
+            "WhatDoIKnow": "Wat ken ik?",
+            "OpenSource": "Mijn publieke projecten."
+        },
+        "contact": {
+            "nav": "Contact",
+            "title": "Neem contact met me op!",
+            "content": "..."
+        }
     }
 }

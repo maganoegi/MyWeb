@@ -358,6 +358,7 @@ ul li {
 
 
 
+
 @media (max-width: 800px) { /*------------------------------------------------------------------------------------*/
 
     .ProgLanguageGrid {
@@ -445,7 +446,7 @@ ul li {
     }
 
     .aboutImages {
-        display: block;
+        display: none !important;
         position: absolute;
         float: left;
         left: 0;

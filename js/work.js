@@ -9,13 +9,11 @@ jQuery.githubUser = function(username, callback) {
 }
   
 jQuery.fn.loadRepositories = function(username) {
-    // this.html("<span>Querying GitHub for " + username +"'s repositories...</span>");
     
     var target = this;
     $.githubUser(username, function(data) {
         var repos = data.data;
 
-        // console.log(data);
 
         var list = "<div class=\"gitGrid\">";
         $(repos).each(function() {
@@ -33,36 +31,6 @@ jQuery.fn.loadRepositories = function(username) {
         list += '</div>';
         target.empty().append(list);
     });
-    // $(".workContent").css("height", "100%");
-
-
-    // UNCOMMENT FOR TESTING PURPOSES!! Limited amount of queries GitHub
-
-    // var link = "www.placeholder.com";
-    // var desc = "Traveling Salesman Problem using Genetical Algorithm";
-    // var list = "<div class=\"gitGrid\">";
-    // for(i=0; i<20;i++) {
-    //     let lang = "Java";
-    //     let imgSrc; 
-    //     switch(lang) {
-    //         case "Python":
-    //             imgSrc = "./resources/python.png";
-    //             break;
-    //         case "C":
-    //             imgSrc = "./resources/c.png";
-    //             break;
-    //         case "Rust":
-    //             imgSrc = "./resources/rust.png";
-    //             break;
-    //         case "Java":
-    //             imgSrc = "./resources/java.png";
-    //             break;
-    //     }
-    //     list += '<div class="gitwrapper" href="'+ link + '">' + '<img src="' + imgSrc + '" alt="langbased" class="gitImg">' + '<div class="gitDesc">' + desc + '</div>' + '</div>';
-    // }
-    // list += '</div>';
-    // target.empty().append(list);
-
 };
 
  
