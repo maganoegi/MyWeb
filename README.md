@@ -9,7 +9,6 @@
    1. Projects
    1. Contact
 1. Language Support
-1. Non-navigational animations
 1. Responsiveness
 1. Assets Used
 1. Consumed API
@@ -24,6 +23,8 @@ I ended up making a SPA (single page application), as I personally prefer the in
 The goals of this website are to tell who I am and what I do in life, by employing minimalist, clean design enhanced by well-placed transitions and animations to help present the information needed to the reader.
 
 This README serves as a project report.
+
+To visualise the web-app, open _index.html_ in your browser of choice.
 
 ## 2 File Structure
 The source files are subdivided into functional parts: 
@@ -50,19 +51,100 @@ The source files are subdivided into functional parts:
     * __server.js__ - server file to launch on a separate thread
     * __sync.js__ - CRON job-activated script, that updates __final.json__  
 
-
-
 ## 3 Pages
+The web-app consists of four "pages". Since it's a SPA, I will refer to these pages as "views". Every view consists of three parts: a header (my name), the content, a segmented line that marks a transition, and a footer (languages). The pages differ by their "content". All the content is contained under _.content_ class.
 ### 3.1 Landing
+This is the view that is shown upon load. Its content is a navigation bar, with __snakebutton__ animations (borders that change on hover).
+
 ### 3.2 About
+Once in the about section, we can see the following key elements:
+* A text telling my story. This text is loaded from the _international.json_ file when the language is changed. This is done through the handlers located in _nav.js_. I decided to not use any translation API as these languages represent the languages I speak myself, and so the text should be written by me as well.
+* A series of pictures, tied to a scrolling position. These pictures are segmented into 9 pieces, and depending on how far the client has scrolled, different sub-pictures are displayed. 9 sub-pictures are displayed at all times, inviting intuitively the client to scroll in order to see the full picture. __I decided not to display this in the mobile version due to bad UX.__
+
 ### 3.3 Projects
+This content consists of three parts:
+* _international.json_-loaded content.
+* a multicolored grid representing the programming languages / frameworks that I know.
+* a grid of constructed elements with links to my public personal repositories. This grid contains the repo description, link and a dynamically loaded image of the logo of the language used. The images are in the __resources/img/.__ The information is pulled from the GitHub API of my public record (maganoegi). Then this information is assembled dynamically through Javascript and injected into DOM. All this happens in the __work.js__ file. In order to update this information on the deployed version, all I need to do is create a new public repository under my name on GitHub.
+
 ### 3.4 Contact
+This part is as of now unfinished as I have not made up my mind on the design. 
+
 ## 4 Language Support
-## 5 Non-navigational animations
-## 6 Responsiveness
-## 7 Assets Used
-## 8 Consumed API
-## 9 Exposed API
-## 10 Things to improve
+In _nav.js_ we can find JQuery triggers, that allow us to change the language when footer buttons are clicked and load the content in the selected language. From there, if we look into _animations.js_ file, we find `updateContentFromFile()`, which uses an AJAX call to asynchronously load the desired content for the desired part from the _international.json_. This content is then inserted into specific elements' innerHTML. As of now only English is fully translated, and French and Spanish partially
+
+## 5 Responsiveness
+From the beginning I have tried to keep the website responsive. Honestly, it was quite a battle at some point, due to the sheer amount of elements that are present in the DOM. The website has been checked on the following browsers, on both __desktop__ and __mobile__.
+* Opera
+* Firefox
+* Edge
+* Samsung Internet
+* Chrome
+* Chromium
+* Safari
+
+## 6 Assets Used
+* JQuery
+* Node JS
+* express.js
+* Font: Mukta sans-serif
+
+## 7 Consumed API
+Unfortunately I only consumed one API - GitHub. I could not find a public API that would inspire me to put inside this website. I tried my luck with Instagram and Spotify, giving up after a while because of the restrictions and the lack of time.
+
+## 8 Exposed API
+This api is provided in the source code under _api/_, but is not implemented into the website. This is because my webhost does not support NodeJS, and this is a class assignment :)
+### The Goal
+As of now, the GitHub API is consulted every time the page loads. This is not optimal, as there is a limited amount of API calls allowed per hour. So I wanted to create my own API that would store the necessary data from GitHub (and other), giving me unlimited access.
+
+### Data Managament
+So, my server aims to do the following things:
+1. Once every x minutes, a CRON job executes _sync.js_.
+1. This fetches the data from GitHub into _hub.json_.
+1. We also have _custom.json_, which contains projects that are not on GitHub, but that I would also like to mention in my listing. The data for the latter is added manually through POST HTTP calls.
+1. _sync.js_ then merges _custom.json_ and _hub.json_ into _final.json_, which is then read with HTTP GET.
+         
+        custom.json + hub.json = final.json
+1. The rest of the api is simple:
+* _projects.js_ handles the calls
+* _server.js_ handles the server-level organisation
+* _dataMethods.js_ contains the function definitions
+
+### Setup
+        install npm
+        npm install express
+        node sync.js (2x)*
+        node server.js
+
+        ========================================================================
+        🌎 svplatonov.com/api server is running at http://localhost: 3000
+        ========================================================================
+\* a bug that fails to create the _data/_ folder on the first run. 
+
+Then, the following API calls can be executed:
+        
+        GET http://localhost:3000/projects/
+            => retrieve JSON of all the projects
+        -----------------------------------------------------------------
+        GET http://localhost:3000/projects/xxxx
+            => retrieve JSON of project with id xxxx
+        -----------------------------------------------------------------
+        POST http://localhost:3000/projects/
+            => insert JSON-formatted project into custom.json
+        -----------------------------------------------------------------
+        PATCH http://localhost:3000/projects/xxxx
+            => update JSON-formatted project into custom.json, of id xxxx
+        -----------------------------------------------------------------
+        DELETE http://localhost:3000/projects/xxxx
+            => delete the project with ID xxxx in custom.json
+
+I used a software called __Postman__ to test my API.
+            
+## 9 Things to improve
+A lot of work went into this website, mainly because of the design and wanting to make is complete. Im glad that the "skeleton" of the website is tested and responsive, and I shall continue working on it.
+
+In the end, I ran into trouble with my API calls and express, messing up my POST, PATCH and DELETE calls.
+
+I also used __CSS-Grid__ more than __Flexbox__ because of personal preference and the complicated relationship between the numerous elements in my DOM. The responsiveness was achieved easier this way, in my opinion.
 
   

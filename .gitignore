@@ -2,3 +2,5 @@
 js/node_modules
 resources/config.json
 api/data
+js/builder.js
+js/builder.coffee
