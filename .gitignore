@@ -1,5 +1,4 @@
 .vscode/
 js/node_modules
-resources/img
 resources/config.json
 api/data

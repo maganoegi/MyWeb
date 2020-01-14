@@ -122,9 +122,33 @@ exports.GetData = function(id) {
     });
 }
 
-// Add_2_Custom("source", "id", "name", "url", "description", "language");
+exports.UpdateEntryWithId = function(id, new_id, source, name, url, description, language) {
+    var customFile = fs.readFileSync(customPath);
+    var FileAsArray = JSON.parse(customFile);
 
-// exports.filesDoExist = filesDoExist;
-// exports.FetchGit = FetchGit;
-// exports.Add_2_Custom = Add_2_Custom;
-// exports.Merge = Merge;
+    for (let i = 0; i < FileAsArray.length; i++) {
+        if(FileAsArray[i].id === id) {
+            FileAsArray[i].id = id
+            FileAsArray[i].source = source,
+            FileAsArray[i].name = name,
+            FileAsArray[i].url = url,
+            FileAsArray[i].description = description,
+            FileAsArray[i].language = language
+        }
+    }
+    var FileAsJson = JSON.stringify(FileAsArray);
+    fs.writeFileSync(customPath, FileAsJson);
+} 
+
+exports.DeleteEntry = function(id) {
+    var customFile = fs.readFileSync(customPath);
+    var FileAsArray = JSON.parse(customFile);
+
+    for (let i = 0; i < FileAsArray.length; i++) {
+        if(FileAsArray[i].id === id) {
+            FileAsArray.splice(i, 1);
+        }
+    }
+    var FileAsJson = JSON.stringify(FileAsArray);
+    fs.writeFileSync(customPath, FileAsJson);
+}
