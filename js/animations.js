@@ -42,39 +42,26 @@ function moveHi(direction) {
 
 function moveLine(direction) {
     var delay = 50;
+    let val = 0;
     if(direction == "left") {
-        $(".s1").animate({opacity: 1}, delay, function() {
-            $(".s2").animate({opacity: 1}, delay, function() {
-                $(".s3").animate({opacity: 1}, delay, function() {
-                    $(".s4").animate({opacity: 1}, delay, function() {
-                        $(".s5").animate({opacity: 1}, delay, function() {
-                            $(".s6").animate({opacity: 1}, delay, function() {
-                                $(".s7").animate({opacity: 1}, delay, function() {
-                                    $(".s8").animate({opacity: 1}, delay);
-                                });
-                            });
-                        });
-                    });
-                });
-            });
-        });
-    } else {
-        $(".s1").animate({opacity: 0}, delay, function() {
-            $(".s2").animate({opacity: 0}, delay, function() {
-                $(".s3").animate({opacity: 0}, delay, function() {
-                    $(".s4").animate({opacity: 0}, delay, function() {
-                        $(".s5").animate({opacity: 0}, delay, function() {
-                            $(".s6").animate({opacity: 0}, delay, function() {
-                                $(".s7").animate({opacity: 0}, delay, function() {
-                                    $(".s8").animate({opacity: 0}, delay);
-                                });
-                            });
-                        });
-                    });
-                });
-            });
-        });
+        val = 1;
     }
+
+    $(".s1").animate({opacity: val}, delay, function() {
+        $(".s2").animate({opacity: val}, delay, function() {
+            $(".s3").animate({opacity: val}, delay, function() {
+                $(".s4").animate({opacity: val}, delay, function() {
+                    $(".s5").animate({opacity: val}, delay, function() {
+                        $(".s6").animate({opacity: val}, delay, function() {
+                            $(".s7").animate({opacity: val}, delay, function() {
+                                $(".s8").animate({opacity: val}, delay);
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
 }
 
 function updateContentFromFile(lang, section) {

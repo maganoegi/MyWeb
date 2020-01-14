@@ -38,6 +38,13 @@ pre em:not(.comment) {
     color: #d5927b; 
 }
 
+
+
+/* --------------------------------------------------------- */
+/* ------------------- General Structure ------------------- */
+/* --------------------------------------------------------- */
+
+
 html, body {
     height: 100%;
     margin: 0;
@@ -92,6 +99,12 @@ ul li {
     display: inline-block;
 }
 
+
+/* --------------------------------------------------------- */
+/* ------------------- Footer and its elements ------------- */
+/* --------------------------------------------------------- */
+
+
 .footer {
     grid-area: f;
     display: block;
@@ -140,6 +153,12 @@ ul li {
 .nl {
     grid-area: nl;
 }
+
+
+/* --------------------------------------------------------- */
+/* ------------- Segmented line on the left side ----------- */
+/* --------------------------------------------------------- */
+
 
 .line {
     position: absolute;
@@ -203,6 +222,12 @@ ul li {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
+
+
+/* --------------------------------------------------------- */
+/* ----------- Content Inside different sections ----------- */
+/* --------------------------------------------------------- */
+
 
 .backbtn {
     grid-row: 1;
@@ -445,15 +470,6 @@ ul li {
         width: 100%;
     }
 
-    .aboutImages {
-        display: none !important;
-        position: absolute;
-        float: left;
-        left: 0;
-        z-index: -1;
-    }
-
-
     .sectionContent {
         overflow: visible;
         position: relative;
@@ -497,7 +513,7 @@ ul li {
     .GenDescContent {
         font-size: 15px;
     }
-    
+
     .footer {
         position: inherit;
     }
