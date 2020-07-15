@@ -151,4 +151,5 @@ In the end, I ran into trouble with my API calls and express, messing up my POST
 
 I also used __CSS-Grid__ more than __Flexbox__ because of personal preference and the complicated relationship between the numerous elements in my DOM. The responsiveness was achieved easier this way, in my opinion.
 
+
   
