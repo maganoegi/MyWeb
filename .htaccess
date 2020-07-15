@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://svplatonov.com/$1 [R=301,L]
